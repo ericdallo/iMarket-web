@@ -2,15 +2,33 @@
   "name": "imarket-web",
   "version": "0.0.1",
   "description": "iMarket front end marketplace",
-  "main": "main.js",
+  "main": "",
+  "config": {
+    "assetsdist": "app/assets/dist/",
+    "assetssrc": "app/assets/src/"
+  },
   "dependencies": {
     "local-web-server": "1.2.6",
+    "node-sass": "3.10.0",
+    "nodemon": "1.10.2",
+    "parallelshell": "2.0.0",
     "uglify-js": "2.7.3"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ws --spa app/index.html"
+    "clean": "rm -rf $npm_package_config_assetsdist",
+
+    "build:css": "node-sass $npm_package_config_assetssrc/css/ -r --include-path $npm_package_config_assetssrc/css/ --output-style compressed --source-map true -o $npm_package_config_assetsdist/css/",
+    "watch:css": "nodemon -e scss --exec 'npm run build:css'",
+    "build:js": "mkdir -p $npm_package_config_assetsdist/js && cp -a $npm_package_config_assetssrc/js/. $npm_package_config_assetsdist/js/ && find $npm_package_config_assetsdist/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
+    "watch:js": "nodemon -e js --ignore 'app/assets/src/js/vendor/' --exec 'npm run build:js'",
+
+    "dev": "npm run build:css && npm run build:js",
+    "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js'",
+
+    "start": "ws --spa app/index.html",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
