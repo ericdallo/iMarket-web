@@ -1,0 +1,21 @@
+{
+  "name": "iMarket-web",
+  "homepage": "https://github.com/iMarketbr/iMarket-web",
+  "description": "Front end marketplace",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bower": "*",
+    "install": "1.0.4",
+    "ajax-amd": "1.1.0",
+    "async-define": "git@github.com:elo7/async-define.git#v1.0.5"
+  }
+}
