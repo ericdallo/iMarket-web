@@ -1,3 +1,5 @@
 #!/bin/bash
+set -e
 
-git subtree push dist origin gh-pages
+npm run deploy
+git subtree push --prefix dist origin gh-pages
