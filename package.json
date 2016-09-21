@@ -30,7 +30,7 @@
 
     "start": "ws --spa app/index.html",
 
-    "copy-dependencies": "rm -rf dist/* && find app -type f -not -path '*/src/*' -exec cp --parents -r {} dist \\; && cp bower_components -rf dist && mv dist/app/index.html dist/",
+    "copy-dependencies": "rm -rf dist/* && find app -type f -not -path '*/src/*' -exec cp --parents -r {} dist \\; && mv dist/app/index.html dist/ && cp -rf bower_components dist/",
     "deploy": "npm run build && npm run copy-dependencies",
 
     "test": "echo \"Error: no test specified\" && exit 1"
