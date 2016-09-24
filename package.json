@@ -5,11 +5,10 @@
   "main": "",
   "config": {
     "appdist": "app/dist/",
-    "appsrc": "app/src/"
+    "appsrc": "app/src/",
+    "proddir": "production/"
   },
-  "dependencies": {
-    "foreach-in-dir": "^1.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "local-web-server": "1.2.6",
     "node-sass": "3.10.0",
@@ -17,7 +16,8 @@
     "preprocess": "3.1.0",
     "preprocess-cli": "0.1.0",
     "uglify-js": "2.7.3",
-    "parallelshell": "2.0.0"
+    "parallelshell": "2.0.0",
+    "foreach-in-dir": "1.2.1"
   },
   "scripts": {
     "clean": "rm -rf $npm_package_config_appdist",
@@ -36,7 +36,7 @@
 
     "start": "ws --spa app/dist/index.html",
 
-    "copy-dependencies": "rm -rf dist/* && find app -type f -not -path '*/src/*' -exec cp --parents -r {} dist \\; && mv dist/app/index.html dist/ && cp -rf bower_components dist/",
+    "copy-dependencies": "rm -rf $npm_package_config_proddir/* && find app -type f -not -path '*/src/*' -not -path '*context.js*' -exec cp --parents -r {} $npm_package_config_proddir \\; && cp -rf bower_components $npm_package_config_proddir && mv $npm_package_config_proddir/app/dist/index.html $npm_package_config_proddir",
     "deploy": "npm run build && npm run copy-dependencies",
 
     "test": "echo \"Error: no test specified\" && exit 1"

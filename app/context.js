@@ -2,7 +2,7 @@
 
 var vars = {};
 
-vars.title = 'iMarket';
-vars.cssDir = '/app/dist/css'
+vars.cssDir = 'app/dist/css/'
+vars.imagesDir = 'app/assets/images/';
 
 module.exports = { vars };
