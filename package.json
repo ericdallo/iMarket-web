@@ -4,31 +4,37 @@
   "description": "iMarket front end marketplace",
   "main": "",
   "config": {
-    "assetsdist": "app/assets/dist/",
-    "assetssrc": "app/assets/src/"
+    "appdist": "app/dist/",
+    "appsrc": "app/src/"
   },
   "dependencies": {
+    "foreach-in-dir": "^1.2.1"
+  },
+  "devDependencies": {
     "local-web-server": "1.2.6",
     "node-sass": "3.10.0",
     "nodemon": "1.10.2",
-    "parallelshell": "2.0.0",
-    "uglify-js": "2.7.3"
+    "preprocess": "3.1.0",
+    "preprocess-cli": "0.1.0",
+    "uglify-js": "2.7.3",
+    "parallelshell": "2.0.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "clean": "rm -rf $npm_package_config_assetsdist",
+    "clean": "rm -rf $npm_package_config_appdist",
 
-    "build:css": "node-sass $npm_package_config_assetssrc/css/ -r --include-path $npm_package_config_assetssrc/css/ --output-style compressed --source-map true -o $npm_package_config_assetsdist/css/",
-    "watch:css": "nodemon -e scss --exec 'npm run build:css'",
-    "build:js": "mkdir -p $npm_package_config_assetsdist/js && cp -a $npm_package_config_assetssrc/js/. $npm_package_config_assetsdist/js/ && find $npm_package_config_assetsdist/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
-    "watch:js": "nodemon -e js --ignore 'app/assets/src/js/vendor/' --exec 'npm run build:js'",
-
-    "build": "npm run build:css && npm run build:js",
+    "build:css": "node-sass $npm_package_config_appsrc/css/ -r --include-path $npm_package_config_appsrc/css/ --output-style compressed --source-map true -o $npm_package_config_appdist/css/",
+    "watch:css": "nodemon -e scss -x 'npm run build:css'",
+    "build:js": "mkdir -p $npm_package_config_appdist/js && cp -a $npm_package_config_appsrc/js/. $npm_package_config_appdist/js/ && find $npm_package_config_appdist/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
+    "watch:js": "nodemon -w $npm_package_config_appsrc/js -x 'npm run build:js'",
+    "build:html": "node html-preprocess.js",
+    "watch:html": "nodemon -e html -x 'node html-preprocess.js'",
+    "watch:html-context": "nodemon -w app/context.js -x 'node html-preprocess.js'",
+    "build": "npm run build:css && npm run build:js && npm run build:html",
 
     "dev": "npm run build",
-    "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js'",
+    "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:html-context'",
 
-    "start": "ws --spa app/index.html",
+    "start": "ws --spa app/dist/index.html",
 
     "copy-dependencies": "rm -rf dist/* && find app -type f -not -path '*/src/*' -exec cp --parents -r {} dist \\; && mv dist/app/index.html dist/ && cp -rf bower_components dist/",
     "deploy": "npm run build && npm run copy-dependencies",
