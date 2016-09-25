@@ -1,4 +1,8 @@
 @import 'reset';
+@import 'colors';
+@import 'mixins';
+
+$images-dir: '../../assets/images/';
 
 @font-face {
     font-family: 'museo_sans';
@@ -36,4 +40,9 @@
         format('svg');
     font-weight: 500;
     font-style: normal;
+}
+
+body {
+    background-color: $primary-color;
+    font-family: "museo_sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

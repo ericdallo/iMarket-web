@@ -2,30 +2,31 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>iMarket</title>
-    <meta name="description" content="iMarket">
     <meta http-equiv="Cache-control" content="public">
     <meta name="viewport" content="width=device-width">
     <meta name="theme-color" content="#C11430">
     <link rel="icon" type="image/ico" href="app/assets/images/favicon.png"/>
     <script src="bower_components/async-define/async-define.js"></script>
-    <script src="bower_components/ajax-amd/ajax.js"></script>
-    <link rel="stylesheet" type="text/css" href="app/dist/css/home.css">
+    <script src="bower_components/doc-amd/doc.js"></script>
+    <script src="bower_components/events-amd/events-amd.js"></script>
+    <title>iMarket | Home</title>
+<meta name="description" content="Compre sem sair de casa no iMarket ">
+<link rel="stylesheet" type="text/css" href="app/dist/css/home.css">
 </head><body>
- <header class="header">
+<header class="header">
     <div class="logo-container">
         <img src="app/assets/images/logo.png" class="logo">
     </div>
     <h1 class="title"><a href="#">iMarket</a></h1>
 </header>
 <main class="content">
-        <p class="message">Frase de efeito</p>
-        <section class="information">
-            <form action="/cep" method="GET">
-                <input name="cep" placeholder="Digite seu cep" class="field cep-field">
-            </form>
-            <a href="#" class="field btn-market">Sou um mercado</a> 
-        </section>
+    <p class="message">Frase de efeito</p>
+    <section class="information">
+        <form action="/cep" method="GET">
+            <input name="cep" placeholder="Digite seu cep" class="field">
+        </form>
+        <a href="#" class="field btn-market">Sou um mercado</a> 
+    </section>
     <a href="#" class="unknow-cep">Não sabe seu CEP?</a>
 </main>
 </body>

@@ -1,21 +1,23 @@
 <!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Home</title>
+<meta name="description" content="Compre sem sair de casa no iMarket ">
 <link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->home.css">
- <!-- @endextend -->
- <!-- @extend templates/directives/layout-body.html -->
- <header class="header">
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+<header class="header">
     <div class="logo-container">
-        <img src="app/assets/images/logo.png" class="logo">
+        <img src="<!--@echo imagesDir-->logo.png" class="logo">
     </div>
     <h1 class="title"><a href="#">iMarket</a></h1>
 </header>
 <main class="content">
-        <p class="message">Frase de efeito</p>
-        <section class="information">
-            <form action="/cep" method="GET">
-                <input name="cep" placeholder="Digite seu cep" class="field cep-field">
-            </form>
-            <a href="#" class="field btn-market">Sou um mercado</a> 
-        </section>
+    <p class="message">Frase de efeito</p>
+    <section class="information">
+        <form action="/cep" method="GET">
+            <input name="cep" placeholder="Digite seu cep" class="field">
+        </form>
+        <a href="#" class="field btn-market">Sou um mercado</a> 
+    </section>
     <a href="#" class="unknow-cep">Não sabe seu CEP?</a>
 </main>
- <!-- @endextend -->
+<!-- @endextend -->
