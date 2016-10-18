@@ -25,15 +25,5 @@
   ],
   "devDependencies": {
     "async-define": "elo7/async-define"
-  },
-  "_release": "1.0.2",
-  "_resolution": {
-    "type": "version",
-    "tag": "1.0.2",
-    "commit": "1eff7705239b0a1d541cbfbed3e48d3b112231ea"
-  },
-  "_source": "https://github.com/elo7/event-amd.git",
-  "_target": "^1.0.2",
-  "_originalSource": "events-amd",
-  "_direct": true
+  }
 }

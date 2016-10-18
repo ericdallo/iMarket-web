@@ -35,7 +35,7 @@
     "tag": "1.0.10",
     "commit": "e79b0b745546b6d5661c72bc86c02ebc6823408d"
   },
-  "_source": "git@github.com:elo7/doc-amd.git",
+  "_source": "https://github.com/elo7/doc-amd.git",
   "_target": "1.0.10",
-  "_originalSource": "git@github.com:elo7/doc-amd.git"
+  "_originalSource": "doc-amd"
 }

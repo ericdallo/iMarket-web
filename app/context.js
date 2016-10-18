@@ -2,9 +2,9 @@
 
 var vars = {};
 
-vars.cssDir = 'app/dist/css/'
-vars.jsDir = 'app/dist/js/'
-vars.imagesDir = 'app/assets/images/';
+vars.cssDir = 'css/'
+vars.jsDir = 'js/'
+vars.imagesDir = 'assets/images/';
 
 module.exports = { vars };
 

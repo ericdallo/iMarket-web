@@ -2,14 +2,14 @@
 @import 'colors';
 @import 'mixins';
 
-$images-dir: '../../assets/images/';
+$images-dir: '../assets/images/';
 $font-default: 'museo_sans';
 $font-amatic: 'amatic';
 
 @font-face {
     font-family: 'amatic';
     src:
-        url('../../assets/fonts/amatic.ttf')
+        url('../assets/fonts/amatic.ttf')
         format('truetype');
     font-weight: 300;
     font-style: normal;
@@ -18,7 +18,7 @@ $font-amatic: 'amatic';
 @font-face {
     font-family: 'amatic';
     src:
-        url('../../assets/fonts/amatic-bold.ttf')
+        url('../assets/fonts/amatic-bold.ttf')
         format('truetype');
     font-weight: 500;
     font-style: normal;
@@ -27,17 +27,17 @@ $font-amatic: 'amatic';
 @font-face {
     font-family: 'museo_sans';
     src:
-        url('../../assets/fonts/museo-sans-300-webfont.eot');
+        url('../assets/fonts/museo-sans-300-webfont.eot');
     src:
-        url('../../assets/fonts/museo-sans-300-webfont-iefix.eot')
+        url('../assets/fonts/museo-sans-300-webfont-iefix.eot')
         format('embedded-opentype'),
-        url('../../assets/fonts/museo-sans-300-webfont.woff2')
+        url('../assets/fonts/museo-sans-300-webfont.woff2')
         format('woff2'),
-        url('../../assets/fonts/museo-sans-300-webfont.woff')
+        url('../assets/fonts/museo-sans-300-webfont.woff')
         format('woff'),
-        url('../../assets/fonts/museo-sans-300-webfont.ttf')
+        url('../assets/fonts/museo-sans-300-webfont.ttf')
         format('truetype'),
-        url('../../assets/fonts/museo-sans-300-webfont.svg')
+        url('../assets/fonts/museo-sans-300-webfont.svg')
         format('svg');
     font-weight: 300;
     font-style: normal;
@@ -46,17 +46,17 @@ $font-amatic: 'amatic';
 @font-face {
     font-family: 'museo_sans';
     src:
-        url('../../assets/fonts/museo-sans-500-webfont.eot');
+        url('../assets/fonts/museo-sans-500-webfont.eot');
     src:
-        url('../../assets/fonts/museo-sans-500-webfont-iefix.eot')
+        url('../assets/fonts/museo-sans-500-webfont-iefix.eot')
         format('embedded-opentype'),
-        url('../../assets/fonts/museo-sans-500-webfont.woff2')
+        url('../assets/fonts/museo-sans-500-webfont.woff2')
         format('woff2'),
-        url('../../assets/fonts/museo-sans-500-webfont.woff')
+        url('../assets/fonts/museo-sans-500-webfont.woff')
         format('woff'),
-        url('../../assets/fonts/museo-sans-500-webfont.ttf')
+        url('../assets/fonts/museo-sans-500-webfont.ttf')
         format('truetype'),
-        url('../../assets/fonts/museo-sans-500-webfont.svg')
+        url('../assets/fonts/museo-sans-500-webfont.svg')
         format('svg');
     font-weight: 500;
     font-style: normal;

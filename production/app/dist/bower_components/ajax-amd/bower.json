@@ -1,0 +1,29 @@
+{
+	"name": "ajax-amd",
+	"version": "1.1.0",
+	"homepage": "https://github.com/elo7/ajax-amd",
+	"description": "A small ajax library",
+	"main": "ajax.js",
+	"moduleType": [
+		"amd"
+	],
+	"keywords": [
+		"ajax",
+		"js",
+		"get",
+		"post"
+	],
+	"authors": [
+		"Elo7"
+	],
+	"license": "BSD",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test"
+	],
+	"devDependencies": {
+		"async-define": "elo7/async-define"
+	}
+}
