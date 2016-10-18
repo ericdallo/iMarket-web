@@ -2,22 +2,29 @@
 <title>iMarket | Home</title>
 <meta name="description" content="Compre sem sair de casa no iMarket ">
 <link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->home.css">
+<script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->home.js" ></script>
 <!-- @endextend -->
 <!-- @extend templates/directives/layout-body.html -->
 <header class="header">
-    <div class="logo-container">
+    <div class="banner"></div>
+    <div class="menu">
         <img src="<!--@echo imagesDir-->logo.png" class="logo">
+        <h1 class="title"><a href="/">iMarket</a></h1>
+        <nav class="navigation">
+            <a href="/login">Entrar</a>
+            <a href="/cadastro">Cadastre-se</a>
+        </nav>
     </div>
-    <h1 class="title"><a href="#">iMarket</a></h1>
 </header>
 <main class="content">
-    <p class="message">Frase de efeito</p>
-    <section class="information">
-        <form action="/cep" method="GET">
-            <input name="cep" placeholder="Digite seu cep" class="field">
+    <section class="search-box">
+        <h2 class="title">Hora de ir às compras!</h2>
+        <p class="description">Para te ajudar com isso, precisamos saber onde você está</p>
+        <form class="cep-form">
+            <input name="cep" placeholder="Digite seu CEP" class="field">
+            <input type="submit" class="btn-cep" value="">
         </form>
-        <a href="#" class="field btn-market">Sou um mercado</a> 
     </section>
-    <a href="#" class="unknow-cep">Não sabe seu CEP?</a>
 </main>
 <!-- @endextend -->

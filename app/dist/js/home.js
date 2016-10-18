@@ -1,0 +1,1 @@
+define(["doc","form"],function(e,i){e(".cep-form .field").on("keypress",function(e){this.value.length!==i.CEP_SIZE&&i.isDigit(e.key)||e.preventDefault(),i.mask(this,"#####-###",e)})});

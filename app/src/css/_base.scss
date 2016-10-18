@@ -3,6 +3,26 @@
 @import 'mixins';
 
 $images-dir: '../../assets/images/';
+$font-default: 'museo_sans';
+$font-amatic: 'amatic';
+
+@font-face {
+    font-family: 'amatic';
+    src:
+        url('../../assets/fonts/amatic.ttf')
+        format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'amatic';
+    src:
+        url('../../assets/fonts/amatic-bold.ttf')
+        format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'museo_sans';
@@ -43,6 +63,10 @@ $images-dir: '../../assets/images/';
 }
 
 body {
-    background-color: $primary-color;
+    height: 100%;
     font-family: "museo_sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+html{
+    height:100%;
 }
