@@ -28,8 +28,6 @@ body {
             height: 4em;
             left: 1em;
             top: 0.2em;
-            margin-left: 1.5em;
-            margin-top: 0.5em;
         }
 
         .title {
@@ -286,13 +284,100 @@ body {
         }
     }
 }
-@media (min-height: 799px) {
-
-}
-
 @media (min-width: 1199px) {
     .center-content {
         width: 50%;
         margin: 5em auto;
+    }
+}
+@media (min-height: 799px) {
+    .header {
+
+        .banner {
+            min-height: 4em;
+            background-size: 4em;
+        }
+
+        .menu {
+
+            .logo {
+                height: 5em;
+                left: 2em;
+                top: 0.5em;
+            }
+
+            .title {
+                font-size: 4em;
+            }
+            .navigation {
+                right: 2em;
+                top: 1.5em;
+
+                .login,.register {
+                    font-size: 1.4em;
+                    margin: 0 1em;
+                }
+            }
+        }
+    }
+
+    .center-content {
+        width: 60%;
+        margin: 8em auto;
+    }
+    .search-box {
+        padding: 1.5em;
+
+        .description {
+            font-size: 1.8em;
+        }
+
+        .cep-form {
+            height: 3em;
+
+            .field {
+                width: calc(100% - 2em);
+                font-size: 1.4em;
+                padding-left: 2em;
+            }
+        }
+    }
+    .unknow-cep {
+        padding: 1.4em;
+
+        a {
+            font-size: 1.4em;           
+        }
+    }
+    .shop-box {
+        left: 5em;
+        bottom: 3em;
+        padding-top: 1em;
+        padding-left: 5em;
+        padding-right: 3em;
+        padding-bottom: 1em;
+
+        &:before {
+            left: -3em;
+            top: -0.5em;
+            width: 7em;
+            height: 7em;
+        }
+
+        p {
+            font-size: 1.5em
+        }
+        strong {
+            font-size: 1.5em
+        }
+    }
+
+    .google-app {
+        bottom: 2.8em;
+        left: 28em;
+
+        img {
+            height: 5em;
+        }
     }
 }
