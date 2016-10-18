@@ -34,7 +34,7 @@
     "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:html-context'",
     "start": "http-server ./app/dist",
 
-    "copy-dependencies": "rm -rf $npm_package_config_proddir/* && find app -type f -not -path '*/src/*' -not -path '*context.js*' -exec cp --parents -r {} $npm_package_config_proddir \\; && mv $npm_package_config_proddir/app/dist/* $npm_package_config_proddir/ && rm -rf $npm_package_config_proddir/app",
+    "copy-dependencies": "rm -rf $npm_package_config_proddir/* && find app -type f -not -path '*/src/*' -not -path '*context.js*' -exec cp --parents -r {} $npm_package_config_proddir \\; && mv $npm_package_config_proddir/app/dist/* $npm_package_config_proddir/ && rm -rf $npm_package_config_proddir/app && cp -f CNAME $npm_package_config_proddir/",
     "deploy": "npm run build && npm run copy-dependencies",
     
     "test": "echo \"Error: no test specified\" && exit 1"
