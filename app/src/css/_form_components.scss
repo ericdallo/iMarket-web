@@ -62,7 +62,6 @@
 
 .select-field {
     position: relative;
-    cursor: pointer;
 
     &:after {
         position: absolute;
@@ -89,6 +88,7 @@
         border-radius: 6px;
         box-shadow: none;
         background-color: $text;
+        cursor: pointer;
         @include appearance(none);
 
         &:focus {
