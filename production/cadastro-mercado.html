@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#C11430">
+    <link rel="icon" type="image/ico" href="assets/images/favicon.png"/>
+    <script src="bower_components/async-define/async-define.js"></script>
+    <script src="bower_components/doc-amd/doc.js"></script>
+    <script src="bower_components/events-amd/events-amd.js"></script>
+    <title>iMarket | Cadastro de Mercado</title>
+<meta name="description" content="Seja um mercado no mercado">
+<link rel="stylesheet" type="text/css" href="css/shop-register.css">
+<script async type="text/javascript" src="js/form.js" ></script>
+<script async type="text/javascript" src="js/shop-register.js" ></script>
+</head><body>
+<header class="header">
+    <div class="banner"></div>
+    <div class="menu">
+        <img src="assets/images/logo.png" class="logo">
+        <h1 class="title"><a href="/">iMarket</a></h1>
+        
+    </div>
+</header>    <main>
+        <form method="POST" action="/shops" class="shop-register">
+            <div class="left">
+                <section class="requirements">
+                    <header><h2>Requisitos</h2></header>
+                    <main>
+                        <input type="checkbox" id="hasInternetDevice" name="hasInternetDevice" class="checkbox">
+                        <label for="hasInternetDevice" class="device-need check-label">Possuo um dispositivo com acesso a internet</label>
+                    </main>
+                </section>
+                <section class="basic required disabled">
+                    <header><h2 class="changable-title">Dados</h2></header>
+                    <main>
+                        <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled required>
+                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled required>
+
+                        <input type="file" id="shop-picture" name="picture" class="picture-field mandatory" disabled required>
+                        <label for="shop-picture" class="picture">
+                            <img src="assets/images/register-shop-picture.png" class="preview">
+                            <div class="explanation">
+                                <p>Insira uma imagem do</p>
+                                <p>seu estabelecimento</p>
+                            </div>
+                        </label>
+                        
+                    </main>
+                </section>
+            </div>
+            <div class="right">
+                <section class="address required disabled">
+                    <header><h2 class="changable-title">Endereço</h2></header>
+                    <main >
+                        <div class="first-row">
+                            <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory" disabled required>
+                        </div>
+                        <div class="second-row">
+                            <div class="states select-field">
+                                <select name="state" class="mandatory" disabled required>
+                                    <option value="" disabled selected>Estado</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled required>
+                        </div>
+                        <div class="third-row">
+                            <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory" disabled required>
+                            <input name="number" placeholder="Nº" class="text-field number mandatory" disabled required>
+                        </div>
+                        <div class="fourth-row">
+                            <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory" disabled required>
+                        </div>
+                    </main>
+                </section>
+                <section class="delivery required disabled">
+                    <header><h2 class="changable-title">Delivery</h2></header>
+                    <main>
+                        <input type="checkbox" id="hasDelivery" name="hasDelivery" class="checkbox mandatory" disabled>
+                        <label for="hasDelivery" class="check-label delivery-text">Meu estabelecimento possui a opção delivery e estou ciente de que a entrega é de total responsabilidade do mesmo.</label>
+                    </main>
+                </section>
+            </div>
+            <p class="invalid-message hide">Informe corretamente todos os campos</p>
+            <button name="confirmRegister" class="fab bt-confirm-register fab-disabled mandatory" disabled></button>
+        </form>
+    </main>
+</body>
+</html>
