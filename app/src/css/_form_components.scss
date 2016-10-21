@@ -8,6 +8,11 @@
     border: none;
     border-radius: 6px;
     color: $black;
+
+    &:focus {
+        box-shadow: 0 0 4px $primary-color;
+        outline: none;
+    }
 }
 
 .check-label {

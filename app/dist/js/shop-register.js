@@ -1,0 +1,1 @@
+define(["doc","form"],function(e,i){"use strict";e("#hasInternetDevice").on("click",function(){var i=this.checked;e(".shop-register .required").toggleClass("disabled"),e(".mandatory").each(function(e){e.disabled=!i})}),e(".shop-register .cep").on("keypress",function(e){this.value.length!==i.CEP_SIZE&&i.isDigit(e.key)||e.preventDefault(),i.mask(this,"#####-###",e)})});

@@ -2,11 +2,17 @@
 @import 'header';
 @import 'form_components';
 
-.shop-register {
-    width: 100%;
-    height: calc(100% - 7em);
+body {
     background-color: $background-gray;
+}
+
+.shop-register {
     display: flex;
+
+    .disabled {
+        opacity: 0.5;
+        @include transition(opacity 0.2s);
+    }
 
     .left {
         width: 40%;
