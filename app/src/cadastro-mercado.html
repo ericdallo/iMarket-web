@@ -1,0 +1,61 @@
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Cadastro de Mercado</title>
+<meta name="description" content="Seja um mercado no mercado">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->shop-register.css">
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+    <!-- @endextend -->
+<main class="shop-register">
+    <div class="left">
+        <section class="requirements">
+            <header><h2>Requisitos</h2></header>
+            <main>
+                <input type="checkbox" id="hasInternetDevice" name="hasInternetDevice" class="checkbox">
+                <label for="hasInternetDevice" class="device-need check-label">Possuo um dispositivo com acesso a internet</label>
+            </main>
+        </section>
+        <section class="basic">
+            <header><h2>Dados</h2></header>
+            <main>
+                <input name="name" placeholder="Nome do mercado" class="text-field basic-field">
+                <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field">
+                <label class="picture">
+                    <input type="file" name="picture" class="field">
+                    <img src="<!--@echo imagesDir-->register-shop-picture.png" class="preview">
+                    <div class="explanation">
+                        <p>Insira uma imagem do</p>
+                        <p>seu estabelecimento</p>
+                    </div>
+                </label>
+                
+            </main>
+        </section>
+    </div>
+    <div class="right">
+        <section class="address">
+            <header><h2>Endereço</h2></header>
+            <main>
+                <div class="first-row">
+                    <input name="cep" placeholder="CEP do mercado" class="text-field cep">
+                </div>
+                <div class="second-row">
+                    <input name="address" placeholder="Endereço do mercado" class="text-field full-address">
+                    <input name="number" placeholder="Nº" class="text-field number">
+                </div>
+                <div class="third-row">
+                    <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood">
+                    <input name="city" placeholder="Cidade" class="text-field city">
+                </div>                
+            </main>
+        </section>
+        <section class="delivery">
+            <header><h2>Delivery</h2></header>
+            <main>
+                <input type="checkbox" id="hasDelivery" name="hasDelivery" class="checkbox">
+                <label for="hasDelivery" class="check-label delivery-text">Meu estabelecimento possui a opção delivery e estou ciente de que a entrega é de total responsabilidade do mesmo.</label>
+            </main>
+        </section>
+    </div>
+</main>
+<!-- @endextend -->

@@ -1,0 +1,49 @@
+.text-field {
+    text-align: center;
+    font-family: $font-default;
+    font-weight: lighter;
+    font-size: 1.5em;
+    background-color: $text;
+    padding: 0.3em;
+    border: none;
+    border-radius: 6px;
+    color: $black;
+}
+
+.check-label {
+    font-size: 1.2em;
+    position: relative;
+    padding-left: 2em;
+    cursor: pointer;
+    @include box-decoration-break(clone);
+
+    &:before {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        left: 0;
+        top: 0.5em;
+        background-color: $background-gray;
+        background-position: 50%;
+        border: 1px solid $gray;
+        border-radius: 6px;
+
+        @include transition(background 0.2s);
+    }   
+}
+
+.checkbox {
+    position: absolute;
+    left: -9999px;
+
+    &:checked {
+
+        + .check-label:before {
+            background: $primary-color-light url($images-dir + 'check.svg') no-repeat;
+            background-position: 50%;
+            border-color: $primary-color;
+        }
+    }
+}

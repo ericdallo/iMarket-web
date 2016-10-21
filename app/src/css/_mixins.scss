@@ -1,5 +1,16 @@
+@mixin box-decoration-break($box-decoration-break...) {
+    -webkit-box-decoration-break: $box-decoration-break;
+    -moz-box-decoration-break: $box-decoration-break;
+    box-decoration-break: $box-decoration-break;
+}
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    transition: $transition;
+}
+
 @mixin animation($animation...) {
-	-webkit-animation: $animation;
+    -webkit-animation: $animation;
     -moz-animation: $animation;
     animation: $animation;
 }

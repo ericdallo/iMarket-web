@@ -1,0 +1,146 @@
+@import 'base';
+@import 'header';
+@import 'form_components';
+
+.shop-register {
+    width: 100%;
+    height: calc(100% - 7em);
+    background-color: $background-gray;
+    display: flex;
+
+    .left {
+        width: 40%;
+        padding: 0 5em;
+    }
+
+    .right {
+        width: 60%;
+        padding: 0 5em;
+    }
+
+    .info {
+        padding: 2em;
+
+        header h2 {
+            color: $black-title;
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+    }
+    .basic-field {
+        width: calc(100% + 0.6em);
+        margin: 0.3em 0;
+    }
+
+    .requirements {
+        @extend .info;
+
+        .device-need {
+            font-weight: lighter;
+            color: $gray;
+        }
+    }
+
+    .basic{
+        @extend .info;
+
+        .picture {
+            width: 100%;
+            display: block;
+            margin-top: 1em;
+            background-color: white;
+            padding: 1em;
+            border-radius: 2px;
+            color: $gray;
+            white-space: nowrap;
+            position: relative;
+            cursor: pointer;
+
+            &:after {
+                position: absolute;
+                right: 1em;
+                top: calc(50% - 0.5em);
+                content: '';
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                background: transparent url($images-dir + 'arrow.svg') no-repeat;
+                background-position: right;
+            }
+
+            .field {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+
+            .preview {
+                width: 4em;
+                height: 4em;
+                position: absolute;
+                top: 0.4em;
+            }
+
+            .explanation {
+                padding-left: 4em;
+                display: inline-block;
+                font-size: 1.4em;
+                font-weight: lighter;
+            }
+        }
+
+    }
+
+    .address {
+        @extend .info;
+
+        .first-row {
+            width: 100%;
+            margin-bottom: 1em;
+
+            .cep {
+                width: 50%;
+            }
+        }
+        .second-row {
+            width: 100%;
+            margin-bottom: 1em;
+            display: flex;
+
+            .full-address {
+                width: 90%;
+                margin-right: 0.5em;
+            }
+            .number {
+                width: 10%;
+            }
+        }
+        .third-row {
+            width: 100%;
+            margin-bottom: 1em;
+            display: flex;
+
+            .neighborhood {
+                width: 50%;
+                margin-right: 0.5em;
+            }
+
+            .city {
+                width: 50%;
+            }
+        }
+    }
+
+    .delivery {
+        @extend .info;
+
+        .delivery-text {            
+            font-weight: lighter;
+            color: $gray;
+            line-height: 1.2;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+@keyframes slide {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+@-webkit-keyframes slide {
+    from { background-position: 100% 0; }
+    to { background-position: 0 0; }
+}
+
+.header {
+    background-color: $primary-color;
+    max-height: 7em;
+
+    .banner {
+        min-height: 3em;
+        background: url($images-dir + 'banner.svg') repeat-x;
+        background-size: 3em;
+        @include animation(slide 80s linear infinite);
+    }
+    .menu {
+        width: 100%;
+        padding-bottom: 0.5em;
+        text-align: center;
+        position: relative;
+
+        .logo {
+            position: absolute;
+            height: 4em;
+            left: 1em;
+            top: 0.2em;
+        }
+
+        .title {
+            font-family: $font-amatic;
+            font-size: 3em;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+        .navigation {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+            font-weight: lighter;
+
+            p { display: inline-block;}
+
+            .login,.register {
+                display: none;
+                color: white;
+                text-decoration: none;
+                font-size: 1.2em;
+                margin: 0 0.8em;
+            }
+            .login-icon {
+                text-align: center;
+            }
+        }
+    }
+}
+@media (min-width: 799px) {
+    .header {
+        @include animation(slide 150s linear infinite);
+
+        .menu .navigation {
+
+            .login,
+            .register {
+                display: inline-block;
+            }
+
+            .login-icon {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (min-height: 799px) {
+    .header {
+
+        .banner {
+            min-height: 4em;
+            background-size: 4em;
+        }
+
+        .menu {
+
+            .logo {
+                height: 5em;
+                left: 2em;
+                top: 0.5em;
+            }
+
+            .title {
+                font-size: 4em;
+            }
+            .navigation {
+                right: 2em;
+                top: 1.5em;
+
+                .login,.register {
+                    font-size: 1.4em;
+                    margin: 0 1em;
+                }
+            }
+        }
+    }
+}
