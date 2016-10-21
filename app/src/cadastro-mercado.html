@@ -22,9 +22,10 @@
                     <header><h2 class="changable-title">Dados</h2></header>
                     <main>
                         <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled>
-                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory" disabled>
-                        <label class="picture">
-                            <input type="file" name="picture" class="field mandatory" disabled>
+                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled>
+
+                        <input type="file" id="shop-picture" name="picture" class="picture-field mandatory" disabled>
+                        <label for="shop-picture" class="picture">
                             <img src="<!--@echo imagesDir-->register-shop-picture.png" class="preview">
                             <div class="explanation">
                                 <p>Insira uma imagem do</p>
@@ -43,13 +44,23 @@
                             <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory" disabled>
                         </div>
                         <div class="second-row">
+                            <div class="states select-field">
+                                <select name="state">
+                                    <option value="" disabled selected>Estado</option>
+                                    <!-- @foreach $state in states -->
+                                    <option value="$state">$state</option>
+                                    <!-- @endfor -->
+                                </select>
+                            </div>
+                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled>
+                        </div>
+                        <div class="third-row">
                             <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory" disabled>
                             <input name="number" placeholder="Nº" class="text-field number mandatory" disabled>
                         </div>
-                        <div class="third-row">
+                        <div class="fourth-row">
                             <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory" disabled>
-                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled>
-                        </div>                
+                        </div>
                     </main>
                 </section>
                 <section class="delivery required disabled">

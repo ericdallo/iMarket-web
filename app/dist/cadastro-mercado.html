@@ -36,9 +36,10 @@
                     <header><h2 class="changable-title">Dados</h2></header>
                     <main>
                         <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled>
-                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory" disabled>
-                        <label class="picture">
-                            <input type="file" name="picture" class="field mandatory" disabled>
+                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled>
+
+                        <input type="file" id="shop-picture" name="picture" class="picture-field mandatory" disabled>
+                        <label for="shop-picture" class="picture">
                             <img src="assets/images/register-shop-picture.png" class="preview">
                             <div class="explanation">
                                 <p>Insira uma imagem do</p>
@@ -57,13 +58,47 @@
                             <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory" disabled>
                         </div>
                         <div class="second-row">
+                            <div class="states select-field">
+                                <select name="state">
+                                    <option value="" disabled selected>Estado</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled>
+                        </div>
+                        <div class="third-row">
                             <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory" disabled>
                             <input name="number" placeholder="Nº" class="text-field number mandatory" disabled>
                         </div>
-                        <div class="third-row">
+                        <div class="fourth-row">
                             <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory" disabled>
-                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled>
-                        </div>                
+                        </div>
                     </main>
                 </section>
                 <section class="delivery required disabled">

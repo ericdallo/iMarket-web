@@ -1,1 +1,1 @@
-define(["doc","form"],function(e,i){"use strict";e(".cep-form .field").on("keypress",function(e){this.value.length!==i.CEP_SIZE&&i.isDigit(e.key)||e.preventDefault(),i.mask(this,"#####-###",e)})});
+define(["doc","form"],function(e,f){"use strict";f.mask(e(".cep-form .field"),"#####-###",f.CEP_SIZE)});

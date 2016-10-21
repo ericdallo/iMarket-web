@@ -11,13 +11,7 @@ define(['doc', 'form'], function($, form) {
         });
     });
 
-
-    $('.shop-register .cep').on('keypress', function (event) {
-        if(this.value.length === form.CEP_SIZE || !form.isDigit(event.key)) {
-            event.preventDefault();
-        }
-        form.mask(this, "#####-###", event);
-    });
-
+    form.mask($('.shop-register .cep'), "#####-###", form.CEP_SIZE);
+    form.mask($('.shop-register .cnpj'), "##.###.###/####-##", form.CNPJ_SIZE);
 
 });

@@ -50,6 +50,22 @@ body {
     .basic{
         @extend .info;
 
+        .picture-field {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+
+            &:focus {
+
+                + .picture {
+                    box-shadow: 0 0 4px $primary-color;
+                }
+            }
+        }
+
         .picture {
             width: 100%;
             display: block;
@@ -72,15 +88,6 @@ body {
                 height: 1em;
                 background: transparent url($images-dir + 'arrow.svg') no-repeat;
                 background-position: right;
-            }
-
-            .field {
-                width: 0.1px;
-                height: 0.1px;
-                opacity: 0;
-                overflow: hidden;
-                position: absolute;
-                z-index: -1;
             }
 
             .preview {
@@ -116,12 +123,13 @@ body {
             margin-bottom: 1em;
             display: flex;
 
-            .full-address {
-                width: 90%;
+            .states {
+                width: 22%;
                 margin-right: 0.5em;
             }
-            .number {
-                width: 10%;
+
+            .city {
+                width: 50%;
             }
         }
         .third-row {
@@ -129,13 +137,20 @@ body {
             margin-bottom: 1em;
             display: flex;
 
+            .full-address {
+                width: 85%;
+                margin-right: 0.5em;
+            }
+            .number {
+                width: 15%;
+            }
+        }
+        .fourth-row {
+            width: 100%;
+
             .neighborhood {
                 width: 50%;
                 margin-right: 0.5em;
-            }
-
-            .city {
-                width: 50%;
             }
         }
     }

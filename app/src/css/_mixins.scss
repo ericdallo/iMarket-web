@@ -14,3 +14,8 @@
     -moz-animation: $animation;
     animation: $animation;
 }
+@mixin appearance($appearance...) {
+    -webkit-appearance: $appearance;
+    -moz-appearance: $appearance;
+    appearance: $appearance;
+}
