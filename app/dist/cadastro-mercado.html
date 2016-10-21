@@ -35,10 +35,10 @@
                 <section class="basic required disabled">
                     <header><h2 class="changable-title">Dados</h2></header>
                     <main>
-                        <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled>
-                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled>
+                        <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled required>
+                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled required>
 
-                        <input type="file" id="shop-picture" name="picture" class="picture-field mandatory" disabled>
+                        <input type="file" id="shop-picture" name="picture" class="picture-field mandatory" disabled required>
                         <label for="shop-picture" class="picture">
                             <img src="assets/images/register-shop-picture.png" class="preview">
                             <div class="explanation">
@@ -55,11 +55,11 @@
                     <header><h2 class="changable-title">Endereço</h2></header>
                     <main >
                         <div class="first-row">
-                            <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory" disabled>
+                            <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory" disabled required>
                         </div>
                         <div class="second-row">
                             <div class="states select-field">
-                                <select name="state" class="mandatory" disabled>
+                                <select name="state" class="mandatory" disabled required>
                                     <option value="" disabled selected>Estado</option>
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>
@@ -90,14 +90,14 @@
                                     <option value="TO">TO</option>
                                 </select>
                             </div>
-                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled>
+                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled required>
                         </div>
                         <div class="third-row">
-                            <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory" disabled>
-                            <input name="number" placeholder="Nº" class="text-field number mandatory" disabled>
+                            <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory" disabled required>
+                            <input name="number" placeholder="Nº" class="text-field number mandatory" disabled required>
                         </div>
                         <div class="fourth-row">
-                            <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory" disabled>
+                            <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory" disabled required>
                         </div>
                     </main>
                 </section>
@@ -109,6 +109,8 @@
                     </main>
                 </section>
             </div>
+            <p class="invalid-message hide">Informe corretamente todos os campos</p>
+            <button name="confirmRegister" class="fab bt-confirm-register fab-disabled mandatory" disabled></button>
         </form>
     </main>
 </body>

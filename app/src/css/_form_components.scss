@@ -98,3 +98,36 @@
 
     }
 }
+$fab-shadow: 4px;
+
+.fab {
+    border-radius: 50%;
+    width: 3.5em;
+    height: 3.5em;
+    border: none;
+    background: $primary-color-light url($images-dir + 'check.svg') no-repeat;
+    background-position: 50%;
+    background-size: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 $fab-shadow rgba(0,0,0,.14),0 $fab-shadow $fab-shadow*2 rgba(0,0,0,.28);
+    @include transition(box-shadow 0.1s);    
+
+    &:focus {
+        box-shadow: 0 0 $fab-shadow*2 rgba(0,0,0,.14),0 $fab-shadow*2 $fab-shadow*4 rgba(0,0,0,.28);
+        outline: none;
+    }
+
+    &:hover {
+        box-shadow: 0 0 $fab-shadow*2 rgba(0,0,0,.14),0 $fab-shadow*2 $fab-shadow*4 rgba(0,0,0,.28);
+    }
+}
+
+.fab-disabled {
+    background-color: $gray;
+    cursor: initial;
+
+    &:focus,&:hover {
+        box-shadow: 0 0 $fab-shadow rgba(0,0,0,.14),0 $fab-shadow $fab-shadow*2 rgba(0,0,0,.28);
+
+    }
+}
