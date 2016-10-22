@@ -3,7 +3,6 @@ npm-debug.log
 /.tmp
 bower_components
 *.swp
-env.js
 /app/dist/js
 /app/dist/css
 /app/dist/templates
