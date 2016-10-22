@@ -1,0 +1,1 @@
+define("ENV",[],function(){"use strict";var e="http://dev.api.imarketbr.com/";return{api:{preshops:e+"preshops"}}});
