@@ -1,1 +1,0 @@
-define(["doc","form"],function(e,f){"use strict";f.mask(e(".cep-form .field"),"#####-###",f.CEP_SIZE)});
