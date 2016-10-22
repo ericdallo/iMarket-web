@@ -1,26 +1,40 @@
 define(['doc', 'form'], function($, form) {
     'use strict'
 
+    var $form = $('#registerForm');
+
     $('#hasInternetDevice').on('click', function() {
         var isChecked = this.checked;
 
-        $('.shop-register .required').toggleClass('disabled');
-        $('.shop-register .fab').toggleClass('fab-disabled');
+        $form.find('.required').toggleClass('disabled');
+        $form.find('.fab').toggleClass('fab-disabled');
 
-        $('.mandatory').each(function(element) {
+        $form.find('.mandatory').each(function(element) {
             element.disabled = !isChecked;
         });
     });
 
-    form.mask('.shop-register .cep', "#####-###", form.CEP_SIZE);
-    form.mask('.shop-register .cnpj', "##.###.###/####-##", form.CNPJ_SIZE);
+    form.mask($form.find('.cep').first(), "#####-###", form.CEP_SIZE);
+    form.mask($form.find('.cnpj').first(), "##.###.###/####-##", form.CNPJ_SIZE);
 
-    form.validate('.shop-register', {
+    $form.find('#shopPicture').on('change', function() {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $form.find('.preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    form.validate('#registerForm', {
         success: function() {
             
         },
         error: function() {
-            var $invalidMessage = $('.shop-register .invalid-message');
+            var $invalidMessage = $form.find('.invalid-message');
             $invalidMessage.toggleClass('hide');
             setTimeout(function() {
                 $invalidMessage.addClass('hide');

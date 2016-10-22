@@ -9,7 +9,7 @@
     <!-- @extend templates/directives/header.html -->
     <!-- @endextend -->
     <main>
-        <form method="POST" action="/shops" class="shop-register">
+        <form id="registerForm" method="POST" action="/shops" class="shop-register">
             <div class="left">
                 <section class="requirements">
                     <header><h2>Requisitos</h2></header>
@@ -24,8 +24,8 @@
                         <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled required>
                         <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled required>
 
-                        <input type="file" id="shop-picture" name="picture" class="picture-field mandatory" disabled required>
-                        <label for="shop-picture" class="picture">
+                        <input type="file" id="shopPicture" name="picture" class="picture-field mandatory" disabled required>
+                        <label for="shopPicture" class="picture">
                             <img src="<!--@echo imagesDir-->register-shop-picture.png" class="preview">
                             <div class="explanation">
                                 <p>Insira uma imagem do</p>
