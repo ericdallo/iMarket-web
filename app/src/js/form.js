@@ -1,5 +1,5 @@
 define('form', ['doc'], function($) {
-    'use strict';    
+    'use strict';
 
     var appendErrorClass = function(label) {
         if (label.find('.invalid-field').isEmpty()) {

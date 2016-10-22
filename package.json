@@ -16,6 +16,7 @@
     "parallelshell": "2.0.0",
     "preprocess": "3.1.0",
     "preprocess-cli": "0.1.0",
+    "properties": "1.2.1",
     "uglify-js": "2.7.3"
   },
   "scripts": {
@@ -25,18 +26,16 @@
     "watch:css": "nodemon -e scss -x 'npm run build:css'",
     "build:js": "mkdir -p $npm_package_config_appdist/js && cp -a $npm_package_config_appsrc/js/. $npm_package_config_appdist/js/ && find $npm_package_config_appdist/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
     "watch:js": "nodemon -w $npm_package_config_appsrc/js -x 'npm run build:js'",
-    "build:html": "node html-preprocess.js",
-    "watch:html": "nodemon -e html -x 'node html-preprocess.js'",
-    "watch:html-context": "nodemon -w app/context.js -x 'node html-preprocess.js'",
+    "build:html": "node preprocess.js",
+    "watch:html": "nodemon -e html -x 'node preprocess.js'",
+    "watch:context": "nodemon -w app/context.js -x 'node preprocess.js'",
     "build": "npm run build:css && npm run build:js && npm run build:html",
 
     "dev": "npm run build",
-    "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:html-context'",
+    "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:context'",
     "start": "http-server ./app/dist",
-
     "copy-dependencies": "rm -rf $npm_package_config_proddir/* && find app -type f -not -path '*/src/*' -not -path '*context.js*' -exec cp --parents -r {} $npm_package_config_proddir \\; && mv $npm_package_config_proddir/app/dist/* $npm_package_config_proddir/ && rm -rf $npm_package_config_proddir/app && cp -f CNAME $npm_package_config_proddir/",
     "deploy": "npm run build && npm run copy-dependencies",
-    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

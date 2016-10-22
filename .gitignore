@@ -1,5 +1,10 @@
 npm-debug.log
 /node_modules
 /.tmp
-/bower_components
+bower_components
 *.swp
+env.js
+/app/dist/js
+/app/dist/css
+/app/dist/templates
+/app/dist/*.html

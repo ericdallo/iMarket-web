@@ -1,4 +1,4 @@
-define(['doc', 'form'], function($, form) {
+define(['doc', 'form', 'ENV'], function($, form, ENV) {
     'use strict'
 
     var $form = $('#registerForm');
