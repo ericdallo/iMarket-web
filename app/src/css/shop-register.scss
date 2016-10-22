@@ -7,7 +7,6 @@ body {
 }
 
 .shop-register {
-    display: flex;
 
     .disabled {
         opacity: 0.5;
@@ -15,17 +14,16 @@ body {
     }
 
     .left {
-        width: 40%;
-        padding: 0 5em;
+        width: 100%;
     }
 
     .right {
-        width: 60%;
-        padding: 0 5em;
+        width: 100%;
     }
 
     .info {
         padding: 2em;
+        display: inline-block;
 
         header h2 {
             color: $black-title;
@@ -34,7 +32,7 @@ body {
         }
     }
     .basic-field {
-        width: calc(100% + 0.6em);
+        width: calc(100% - 0.6em);
         margin: 0.3em 0;
     }
 
@@ -67,14 +65,13 @@ body {
         }
 
         .picture {
-            width: 100%;
+            width: calc(100% - 2em);
             display: block;
             margin-top: 1em;
             background-color: white;
             padding: 1em;
             border-radius: 2px;
             color: $gray;
-            white-space: nowrap;
             position: relative;
             cursor: pointer;
 
@@ -91,16 +88,16 @@ body {
             }
 
             .preview {
-                width: 4em;
-                height: 4em;
+                width: 3em;
+                height: 3em;
                 position: absolute;
-                top: 0.4em;
+                top: 0.8em;
             }
 
             .explanation {
                 padding-left: 4em;
                 display: inline-block;
-                font-size: 1.4em;
+                font-size: 1.2em;
                 font-weight: lighter;
             }
         }
@@ -115,7 +112,7 @@ body {
             margin-bottom: 1em;
 
             .cep {
-                width: 50%;
+                width: 100%;
             }
         }
         .second-row {
@@ -124,12 +121,13 @@ body {
             display: flex;
 
             .states {
-                width: 22%;
+                width: 40%;
                 margin-right: 0.5em;
+                text-align-last: center;
             }
 
             .city {
-                width: 50%;
+                width: 60%;
             }
         }
         .third-row {
@@ -138,18 +136,18 @@ body {
             display: flex;
 
             .full-address {
-                width: 85%;
+                width: 80%;
                 margin-right: 0.5em;
             }
             .number {
-                width: 15%;
+                width: 20%;
             }
         }
         .fourth-row {
             width: 100%;
 
             .neighborhood {
-                width: 50%;
+                width: 100%;
                 margin-right: 0.5em;
             }
         }
@@ -158,11 +156,15 @@ body {
     .delivery {
         @extend .info;
         padding-top: 0;
+        margin-bottom: 3em;
+
 
         .delivery-text {            
             font-weight: lighter;
             color: $gray;
             line-height: 1.2;
+            width: calc(100% - 2em);
+            display: inline-block;
         }
     }
 
@@ -189,8 +191,153 @@ body {
         }
     }
     .bt-confirm-register {
-        position: absolute;
-        bottom: 3em;
-        right: 3em;
+        position: fixed;
+        bottom: 1.5em;
+        right: 1.5em;
     }
+}
+
+@media (min-width: 800px) {
+
+    .shop-register {
+        display: flex;
+
+        .picture {
+            white-space: nowrap;
+
+            .preview {
+                width: 4em;
+                height: 4em;
+                top: 0.4em;
+            }
+
+            .explanation {
+                font-size: 1.4em;
+            }
+        }
+
+        .left {
+            width: 40%;
+            padding: 0 1.5em;
+        }
+
+        .right {
+            width: 60%;
+            padding: 0 1.5em;
+        }
+
+        .address {
+            .first-row {
+                .cep {
+                    width: 60%;
+                }
+            }
+            .second-row {
+
+                .states {
+                    width: 40%;
+                }
+
+                .city {
+                    width: 60%;
+                }
+            }
+            .third-row {
+                .full-address {
+                    width: 80%;
+                }
+                .number {
+                    width: 20%;
+                }
+            }
+            .fourth-row {
+                .neighborhood {
+                    width: 70%;
+                }
+            }
+        }
+
+        .delivery {
+            margin-bottom: 0;
+        }
+
+        .bt-confirm-register {
+            bottom: 3em;
+            right: 3em;
+        }
+    }    
+}
+
+@media (min-width: 1100px) {
+    .shop-register {
+        .left {
+            padding: 0 3em;
+        }
+        .right {
+            padding: 0 4em;
+        }
+        .address {
+            .second-row {
+                .states {
+                    width: 30%;
+                }
+
+                .city {
+                    width: 70%;
+                }
+            }
+            .third-row {
+                .full-address {
+                    width: 85%;
+                }
+                .number {
+                    width: 15%;
+                }
+            }
+            .fourth-row {
+                .neighborhood {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-height: 799px) {
+    .shop-register {
+
+        .info {
+            padding: 3em;            
+
+            header h2 {
+                font-size: 2.2em;
+            }
+        }
+
+        .requirements {
+            .device-need {
+                font-size: 1.5em;
+            }
+        }
+
+        .basic {
+            .picture {
+                .explanation {
+                    font-size: 1.6em;
+                }
+            }
+        }
+
+        .delivery {
+            .delivery-text {            
+                line-height: 1.4;
+                font-size: 1.4em;
+            }
+        }
+
+        .fab {
+            width: 5em;
+            height: 5em;
+        }
+    }   
 }

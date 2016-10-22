@@ -24,7 +24,7 @@ define(['doc', 'form'], function($, form) {
             $invalidMessage.toggleClass('hide');
             setTimeout(function() {
                 $invalidMessage.addClass('hide');
-            } ,4000);
+            },4000);
         }
     });
 
