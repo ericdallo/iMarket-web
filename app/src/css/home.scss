@@ -5,7 +5,7 @@ $border-radius: 10px;
 
 body {
     background: url($images-dir + 'home-bg.jpg') no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: 0 6em;
 }
 
@@ -212,7 +212,7 @@ body {
         margin: 5em auto;
     }
 }
-@media (min-height: 799px) {
+@media (min-width: 1199px) and (min-height: 799px) {
     .center-content {
         width: 60%;
         margin: 8em auto;

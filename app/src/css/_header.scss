@@ -9,7 +9,6 @@
 
 .header {
     background-color: $primary-color;
-    max-height: 7em;
 
     .banner {
         min-height: 3em;
@@ -80,7 +79,6 @@
 
 @media (min-height: 799px) {
     .header {
-        max-height: 9em;
 
         .banner {
             min-height: 4em;
