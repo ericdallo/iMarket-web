@@ -1,1 +1,1 @@
-define("ENV",[],function(){"use strict";var e="http://dev.api.imarketbr.com/";return{api:{preshops:e+"preshops"}}});
+define("ENV",[],function(){"use strict";var t="http://localhost:9090/";return{api:{premarkets:t+"premarkets"}}});

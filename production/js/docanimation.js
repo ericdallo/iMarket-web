@@ -1,0 +1,1 @@
+define("docanimation",["doc"],function(t){"use strict";return{fadeOut:function(t,e,n){void 0===e&&(e=10);var a=t.first(),i=1,l=setInterval(function(){i<=.1&&(clearInterval(l),a.style.display="none",n.call()),a.style.opacity=i,a.style.filter="alpha(opacity="+100*i+")",i-=.1*i},e)}}});
