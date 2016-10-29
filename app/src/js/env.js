@@ -1,11 +1,11 @@
 define('ENV', [], function() {
     'use strict'
 
-    var baseApi = 'http://dev.api.imarketbr.com/';
+    var baseApi = 'http://localhost:9090/';
 
     return {
         'api': {
-            'preshops': baseApi + 'preshops'
+            'premarkets': baseApi + 'premarkets'
         }
     }
 });

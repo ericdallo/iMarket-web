@@ -168,7 +168,7 @@ body {
         }
     }
 
-    .invalid-message {
+    .message {
         position: fixed;
         width: 12em;
         bottom: 1em;
@@ -195,6 +195,49 @@ body {
         position: fixed;
         bottom: 1.5em;
         right: 1.5em;
+    }
+
+    .loading {
+        background: $primary-color-light url($images-dir + 'loading.gif') no-repeat;
+        background-size: 60%;
+        background-position: 50%;
+    }
+}
+
+.modal-success {
+    margin: auto;
+    margin-top: 2em;
+    width: 95%;
+    background: white;
+    border: 1px solid $primary-color-light;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    
+    .title {
+        font-size: 1.6em;
+        padding: 1em;
+        color: white;
+        background-color: $primary-color-light;
+    }
+
+    .content {
+        padding: 1em;
+        line-height: 1.2;
+        font-size: 1.2em;
+        color: black;
+    }
+
+    .back {
+        position: absolute;
+        right: 0.5em;
+        bottom: -3em;
+        color: $primary-color;
+        text-decoration: none;
+        @include animation(color 0.1s);
+
+        &:hover {
+            color: $primary-color-light;
+        }
     }
 }
 
@@ -262,7 +305,7 @@ body {
             margin-bottom: 0;
         }
 
-        .invalid-message {
+        .message {
             bottom: 2.6em;
             right: 7em;
 
@@ -275,7 +318,12 @@ body {
             bottom: 3em;
             right: 3em;
         }
-    }    
+    }
+
+    .modal-success {
+        margin-top: 4em;
+        width: 60%;
+    }
 }
 
 @media (min-width: 1100px) {
@@ -310,6 +358,10 @@ body {
                 }
             }
         }
+    }
+
+    .modal-success {
+        width: 40%;
     }
 }
 
