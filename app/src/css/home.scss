@@ -5,7 +5,7 @@ $border-radius: 10px;
 
 body {
     background: url($images-dir + 'home-bg.jpg') no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position: 0 6em;
 }
 
