@@ -3,7 +3,7 @@ define(['doc', 'docanimation', 'ajax', 'form', 'ENV'], function($, $animation, a
 
     var $form = $('#registerForm');
 
-    $('#hasInternetDevice').on('click', function() {
+    $('#hasInternetDevice').on('change', function() {
         var isChecked = this.checked;
 
         $form.find('.required').toggleClass('disabled');
