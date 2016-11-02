@@ -15,6 +15,4 @@ define(['doc', 'form', 'loggedUser'], function($, form, $loggedUser) {
 	});
 
 	form.mask('.cep-form .field', "#####-###", form.CEP_SIZE);
-
-	console.log('user:', $loggedUser.get());
 });
