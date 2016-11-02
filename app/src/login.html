@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->login.css">
 <script async type="text/javascript" src="<!-- @echo jsDir-->env.js" ></script>
 <script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->logged-user.js" ></script>
 <script async type="text/javascript" src="<!-- @echo jsDir-->login.js" ></script>
 <!-- @endextend -->
 <!-- @extend templates/directives/layout-body.html -->
@@ -20,6 +21,7 @@
             <section class="login">
                 <h2 class="subtitle">Já sou cadastrado</h2>
                 <p class="empty-fields-message hide">Informe login e senha</p>
+                <p class="invalid-fields-message hide">Ocorreu um problema, tente novamente</p>
                 <input type="email" name="email" placeholder="E-mail" class="text-field email mandatory" autofocus required>
                 <input type="password" name="password" placeholder="Senha" class="text-field password mandatory" required>
 

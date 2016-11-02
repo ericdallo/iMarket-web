@@ -46,13 +46,23 @@
 
             p { display: inline-block;}
 
+            .logout {
+                background: none;
+                cursor: pointer;
+            }
+
+            .logout,
             .login,
             .register {
-                display: none;
                 color: white;
                 text-decoration: none;
                 font-size: 1.2em;
                 margin: 0 0.8em;
+            }
+
+            .login,
+            .register {
+                display: none;
             }
             .login-icon {
                 text-align: center;

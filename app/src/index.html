@@ -3,14 +3,20 @@
 <meta name="description" content="Compre sem sair de casa no iMarket ">
 <link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->home.css">
 <script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->logged-user.js" ></script>
 <script async type="text/javascript" src="<!-- @echo jsDir-->home.js" ></script>
 <!-- @endextend -->
 <!-- @extend templates/directives/layout-body.html -->
     <!-- @extend templates/directives/header.html -->
         <nav class="navigation">
-            <a href="/login" class="login">Entrar</a>
-            <a href="/login"><img src="<!--@echo imagesDir-->login.svg" class="login-icon"></a>
-            <a href="/cadastro" class="register">Cadastre-se</a>
+            <div class="unlogged">
+                <a href="/login" class="login">Entrar</a>
+                <a href="/login"><img src="<!--@echo imagesDir-->login.svg" class="login-icon"></a>
+                <a href="/cadastro" class="register">Cadastre-se</a>
+            </div>
+            <div class="logged hide">
+                <button class="logout">Sair</button>
+            </div>
         </nav>
     <!-- @endextend -->
     <main>
@@ -19,7 +25,7 @@
                 <h2 class="title">Hora de ir às compras!</h2>
                 <p class="description">Para te ajudar com isso, precisamos saber onde você está</p>
                 <form class="cep-form">
-                    <input name="cep" placeholder="Digite seu CEP" class="field">
+                    <input name="cep" placeholder="Digite seu CEP" class="field" autofocus>
                     <input type="submit" class="btn-cep" value="">
                 </form>
             </section>

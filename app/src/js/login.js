@@ -1,4 +1,4 @@
-define(['doc', 'ajax', 'form', 'ENV'], function($, ajax, form, ENV) {
+define(['doc', 'ajax', 'form', 'loggedUser', 'ENV'], function($, ajax, form, $loggedUser, ENV) {
 	'use strict'
 
 	var $form = $('#loginForm');
@@ -14,10 +14,11 @@ define(['doc', 'ajax', 'form', 'ENV'], function($, ajax, form, ENV) {
 
             ajax.post(ENV.api.login, loginData, {
                 'success': function(response, xhr) {
+                	$loggedUser.store(response);                	
                     window.location = "/";
                 },
                 'error': function(response, xhr) {
-                    showMessage('.empty-fields-message');
+                    showMessage('.invalid-fields-message');
                 },
                 'complete': function(xhr) {
                 }
