@@ -1,0 +1,31 @@
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Login</title>
+<meta name="description" content="Logue-se como comprador ou mercado">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->login.css">
+<script async type="text/javascript" src="<!-- @echo jsDir-->env.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->login.js" ></script>
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+    <!-- @endextend -->
+    <main>
+        <form id="loginForm" method="POST" action="/login" class="login-form">
+            <section class="register">
+                <h2 class="subtitle">Novo por aqui?</h2>
+                <a href="/facebook" class="btn btn-facebook">Login com o facebok</a>
+                <p>ou</p>
+                <a href="/cadastro" class="btn btn-register">Cadastre-se</a>
+            </section>
+            <section class="login">
+                <h2 class="subtitle">Já sou cadastrado</h2>
+                <p class="empty-fields-message hide">Informe login e senha</p>
+                <input type="email" name="email" placeholder="E-mail" class="text-field email mandatory" autofocus required>
+                <input type="password" name="password" placeholder="Senha" class="text-field password mandatory" required>
+
+                <button class="btn btn-login mandatory">Entrar</button>
+                <a href="" class="forgot-password">Esqueci a senha</a>
+            </section>
+        </form>
+    </main>
+<!-- @endextend -->
