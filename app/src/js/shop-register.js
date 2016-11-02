@@ -1,4 +1,4 @@
-define(['doc', 'docanimation', 'ajax', 'form', 'ENV'], function($, $animation, ajax, form, ENV) {
+define(['doc', 'modal', 'ajax', 'form', 'ENV'], function($, $modal, ajax, form, ENV) {
     'use strict'
 
     var $form = $('#registerForm');
@@ -55,8 +55,13 @@ define(['doc', 'docanimation', 'ajax', 'form', 'ENV'], function($, $animation, a
 
             ajax.post(ENV.api.premarkets, preMarket, {
                 'success': function(response, xhr) {
-                    $animation.fadeOut($form, 10,function() {
-                        $('.modal-success').removeClass('hide');
+                    $modal.show('.modal-success', function() {
+                        $form.find('.required').addClass('disabled');
+                        $form.find('.fab').addClass('fab-disabled');
+
+                        $form.find('.mandatory').each(function(element) {
+                            element.disabled = true;
+                        });
                     });
                 },
                 'error': function(response, xhr) {

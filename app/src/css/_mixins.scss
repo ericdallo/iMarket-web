@@ -1,3 +1,8 @@
+@mixin filter($filter...) {
+    -webkit-filter: $filter;
+    -moz-filter: $filter;
+    filter: $filter;
+}
 @mixin box-decoration-break($box-decoration-break...) {
     -webkit-box-decoration-break: $box-decoration-break;
     -moz-box-decoration-break: $box-decoration-break;

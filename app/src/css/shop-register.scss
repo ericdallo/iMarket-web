@@ -1,6 +1,7 @@
 @import 'base';
 @import 'header';
 @import 'form_components';
+@import 'modal';
 
 body {
     background-color: $background-gray;
@@ -205,38 +206,40 @@ body {
 }
 
 .modal-success {
-    margin: auto;
-    margin-top: 2em;
     width: 95%;
-    background: white;
-    border: 1px solid $primary-color-light;
-    border-radius: 0 0 10px 10px;
-    position: relative;
+    background: $background-gray;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
     
     .title {
-        font-size: 1.6em;
-        padding: 1em;
+        font-size: 2em;
+        padding: 0.5em;
         color: white;
-        background-color: $primary-color-light;
+        background-color: $primary-color;
+        border-radius: 5px 5px 0 0;
     }
 
     .content {
         padding: 1em;
         line-height: 1.2;
-        font-size: 1.2em;
-        color: black;
+        font-size: 1.4em;
+        color: $black;
+        text-align: center;
+
+        p {
+            margin-bottom: 1.5em;
+        }
     }
 
     .back {
-        position: absolute;
-        right: 0.5em;
-        bottom: -3em;
-        color: $primary-color;
+        padding: 0.2em 2em;
+        border-radius: 5px;
+        color: white;
+        background-color: $primary-color;
         text-decoration: none;
-        @include animation(color 0.1s);
 
         &:hover {
-            color: $primary-color-light;
+            background-color: $primary-color-light;
         }
     }
 }
