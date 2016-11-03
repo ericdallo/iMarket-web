@@ -1,4 +1,4 @@
-define(['doc', 'ajax', 'form', 'loggedUser', 'ENV'], function($, ajax, form, $loggedUser, ENV) {
+define(['doc', 'ajax', 'form', 'loggedUser','facebook', 'ENV'], function($, ajax, form, $loggedUser, facebook, ENV) {
     'use strict'
 
     var $form = $('#loginForm');
@@ -31,16 +31,15 @@ define(['doc', 'ajax', 'form', 'loggedUser', 'ENV'], function($, ajax, form, $lo
 
     $form.find('.btn-facebook').on('click', function(event) {
         event.preventDefault();
-        FB.login(function(response){
-          if (response.status === 'connected') {
-            window.location = '/';
-            console.log('con',response);
-          } else if (response.status === 'not_authorized') {
-            console.log('not_a',response);
-          } else {
-            console.log('erro');
-          }
-        }, {scope: 'public_profile,email'});
+
+        facebook.register({
+            'success': function (user) {
+                window.location = '/';
+            },
+            error: function() {
+                showMessage('.email-already-exists');
+            }
+        });
     });
 
     var showMessage = function(messageClass) {

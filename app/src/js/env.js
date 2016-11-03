@@ -6,7 +6,8 @@ define('ENV', [], function() {
     return {
         'api': {
             'premarkets': baseApi + 'premarkets',
-            'login': baseApi + 'login'
+            'login': baseApi + 'login',
+            'register': baseApi + 'register'
         }
     }
 });
