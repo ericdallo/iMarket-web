@@ -4,6 +4,13 @@
 
 .login-form {
     padding: 6em 2em;
+    position: relative;
+
+    .message {
+        text-align: center;
+        margin-bottom: 1em;
+        color: $primary-color-light;
+    }
 
     .row {
         width: 100%;
@@ -22,11 +29,11 @@
         width: calc(50% - 20em);
 
         .btn-facebook {
-            @extend .row;
             margin-bottom: 1em;
             background: $facebook url($images-dir + 'facebook-logo.png') no-repeat;
-            background-position: 1.2em center, center center;
+            background-position: 1em center, center center;
             background-size: 1.2em;
+            width: calc(100% + 1.5em);
         }
         > p {
             width: 100%;
