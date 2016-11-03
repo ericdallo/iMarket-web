@@ -1,0 +1,34 @@
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Login</title>
+<meta name="description" content="Logue-se como comprador ou mercado">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->login.css">
+<script type="text/javascript" src="<!-- @echo jsDir-->only-unlogged-filter.js" ></script>
+<script type="text/javascript" src="<!-- @echo jsDir-->facebook.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->env.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->logged-user.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->login.js" ></script>
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+    <!-- @endextend -->
+    <main>
+        <form id="loginForm" method="POST" action="/login" class="login-form">
+            <section class="register">
+                <h2 class="subtitle">Novo por aqui?</h2>
+                <button href="/facebook" class="btn btn-facebook">Login com o facebok</button>
+                <p>ou</p>
+                <a href="/cadastro" class="btn btn-register">Cadastre-se</a>
+            </section>
+            <section class="login">
+                <h2 class="subtitle">Já sou cadastrado</h2> 
+                <input type="email" name="email" placeholder="E-mail" class="text-field email mandatory" autofocus required>
+                <input type="password" name="password" placeholder="Senha" class="text-field password mandatory" required>
+                <p class="empty-fields-message message hide">Informe login e senha</p>
+                <p class="invalid-fields-message message hide">E-mail ou senha inválidos</p>
+                <button class="btn btn-login mandatory">Entrar</button>
+                <a href="/esqueci-senha" class="forgot-password">Esqueci a senha</a>
+            </section>
+        </form>
+    </main>
+<!-- @endextend -->

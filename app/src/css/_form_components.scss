@@ -10,7 +10,26 @@
     color: $black;
 
     &:focus {
-        box-shadow: 0 0 4px $primary-color;
+        box-shadow: 0 0 4px $gray;
+        outline: none;
+    }
+}
+
+.btn {
+    background-color: $primary-color;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding: 0.75em;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    @include transition(box-shadow 0.1s);
+
+    &:focus,
+    &:hover {
+        box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
         outline: none;
     }
 }
@@ -101,15 +120,15 @@ $fab-shadow: 4px;
 
 .fab {
     border-radius: 50%;
-    width: 3.5em;
-    height: 3.5em;
+    width: 3em;
+    height: 3em;
     border: none;
     background: $primary-color-light url($images-dir + 'check.svg') no-repeat;
     background-position: 50%;
     background-size: 50%;
     cursor: pointer;
     box-shadow: 0 0 $fab-shadow rgba(0,0,0,.14),0 $fab-shadow $fab-shadow*2 rgba(0,0,0,.28);
-    @include transition(box-shadow 0.1s);    
+    @include transition(box-shadow 0.1s);
 
     &:focus {
         box-shadow: 0 0 $fab-shadow*2 rgba(0,0,0,.14),0 $fab-shadow*2 $fab-shadow*4 rgba(0,0,0,.28);

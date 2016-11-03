@@ -1,0 +1,85 @@
+@import 'base';
+@import 'header';
+@import 'form_components';
+
+.login-form {
+    padding: 6em 2em;
+    position: relative;
+
+    .message {
+        text-align: center;
+        margin-bottom: 1em;
+        color: $primary-color-light;
+    }
+
+    .row {
+        width: 100%;
+        display: block;
+    }
+
+    .subtitle {
+        @extend .row;
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+
+    .register {
+        float: left;
+        padding:0 10em;
+        width: calc(50% - 20em);
+
+        .btn-facebook {
+            margin-bottom: 1em;
+            background: $facebook url($images-dir + 'facebook-logo.png') no-repeat;
+            background-position: 1em center, center center;
+            background-size: 1.2em;
+            width: calc(100% + 1.5em);
+        }
+        > p {
+            width: 100%;
+            font-size: 1.4em;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        .btn-register {
+            @extend .row;
+        }
+    }
+
+    .login {
+        float: right;
+        padding:0 8em;
+        width: calc(50% - (16em + 2px));
+        border-left: 2px solid $divider-gray;
+
+        .password,
+        .btn-login,
+        .forgot-password,
+        .email {
+            @extend .row;
+            margin-bottom: 1em;
+        }
+
+        .email {    
+            margin-bottom: 0.75em;
+        }
+
+        .email,
+        .password {
+            width: calc(100% - 2em);
+            padding: 0.5em 1em;
+            text-align: left;
+        }
+
+        .forgot-password {
+            text-align: center;
+            color: $black;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
