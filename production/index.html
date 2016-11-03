@@ -14,6 +14,7 @@
 <meta name="description" content="Compre sem sair de casa no iMarket ">
 <link rel="stylesheet" type="text/css" href="css/home.css">
 <script async type="text/javascript" src="js/form.js" ></script>
+<script async type="text/javascript" src="js/logged-user.js" ></script>
 <script async type="text/javascript" src="js/home.js" ></script>
 </head><body>
 <header class="header">
@@ -24,9 +25,14 @@
         </a>
         <h1 class="title"><a href="/">iMarket</a></h1>
                 <nav class="navigation">
-            <a href="/login" class="login">Entrar</a>
-            <a href="/login"><img src="assets/images/login.svg" class="login-icon"></a>
-            <a href="/cadastro" class="register">Cadastre-se</a>
+            <div class="unlogged">
+                <a href="/login" class="login">Entrar</a>
+                <a href="/login"><img src="assets/images/login.svg" class="login-icon"></a>
+                <a href="/cadastro" class="register">Cadastre-se</a>
+            </div>
+            <div class="logged hide">
+                <button class="logout">Sair</button>
+            </div>
         </nav>
     </div>
 </header>    <main>
@@ -35,7 +41,7 @@
                 <h2 class="title">Hora de ir às compras!</h2>
                 <p class="description">Para te ajudar com isso, precisamos saber onde você está</p>
                 <form class="cep-form">
-                    <input name="cep" placeholder="Digite seu CEP" class="field">
+                    <input name="cep" placeholder="Digite seu CEP" class="field" autofocus>
                     <input type="submit" class="btn-cep" value="">
                 </form>
             </section>

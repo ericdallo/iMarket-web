@@ -1,1 +1,1 @@
-define("ENV",[],function(){"use strict";var t="http://localhost:9090/";return{api:{premarkets:t+"premarkets"}}});
+define("ENV",[],function(){"use strict";var t="http://localhost:9090/";return{api:{premarkets:t+"premarkets",login:t+"login"}}});

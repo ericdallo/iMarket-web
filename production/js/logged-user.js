@@ -1,0 +1,1 @@
+define("loggedUser",[],function(){var e="loggedUser";return{store:function(t){localStorage.setItem(e,JSON.stringify(t))},get:function(){var t=localStorage.getItem(e);if(null!=t)return JSON.parse(t)},logout:function(){localStorage.removeItem(e)}}});

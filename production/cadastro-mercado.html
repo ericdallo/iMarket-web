@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/shop-register.css">
 <script async type="text/javascript" src="js/env.js" ></script>
 <script async type="text/javascript" src="js/form.js" ></script>
-<script async type="text/javascript" src="js/docanimation.js" ></script>
+<script async type="text/javascript" src="js/modal.js" ></script>
 <script async type="text/javascript" src="js/shop-register.js" ></script>
 </head><body>
 <header class="header">
@@ -27,13 +27,13 @@
         <h1 class="title"><a href="/">iMarket</a></h1>
         
     </div>
-</header>    <main>
-        <form id="registerForm" method="POST" action="/preshops" class="shop-register">
+</header>    <main class="modal-container">
+        <form id="registerForm" method="POST" action="/preshops" class="shop-register ">
             <div class="left">
                 <section class="requirements">
                     <header><h2>Requisitos</h2></header>
                     <main>
-                        <input id="hasInternetDevice" type="checkbox" class="checkbox">
+                        <input id="hasInternetDevice" type="checkbox" class="checkbox" autofocus>
                         <label for="hasInternetDevice" class="device-need check-label">Possuo um dispositivo com acesso a internet</label>
                     </main>
                 </section>
@@ -119,14 +119,14 @@
             <p class="error-api-message message hide">Ocorreu um erro e não pudemos salvar seu cadastro, tente novamente mais tarde</p>
             <button class="fab bt-confirm-register fab-disabled mandatory" disabled></button>
         </form>
-        <section class="modal-success hide">
-            <h3 class="title">Quase lá!</h3>
-            <div class="content">
-                <p>Estamos analizando seus dados, assim que aprovarmos, você receberá um e-mail confirmando o cadastro do seu mercado</p>
-            </div>
-
-            <a href="/" class="back">Voltar</a>
-        </section>
     </main>
+    <section class="modal modal-success">
+        <h3 class="title">Quase lá!</h3>
+        <div class="content">
+            <p>Os dados do seu mercado foram enviados para análise e entraremos em contato através do seu e-mail para confirmar seu cadastro!</p>
+
+            <a href="/" class="back">Ok</a>
+        </div>
+    </section>
 </body>
 </html>

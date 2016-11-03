@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#C11430">
+    <link rel="icon" type="image/ico" href="assets/images/favicon.png"/>
+    <script src="bower_components/async-define/async-define.js"></script>
+    <script async src="bower_components/events-amd/events-amd.js"></script>
+    <script async src="bower_components/doc-amd/doc.js"></script>
+    <script async src="bower_components/ajax-amd/ajax.js"></script>
+    <title>iMarket | Login</title>
+<meta name="description" content="Logue-se como comprador ou mercado">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script type="text/javascript" src="js/only-unlogged-filter.js" ></script>
+<script type="text/javascript" src="js/facebook.js" ></script>
+<script async type="text/javascript" src="js/env.js" ></script>
+<script async type="text/javascript" src="js/form.js" ></script>
+<script async type="text/javascript" src="js/logged-user.js" ></script>
+<script async type="text/javascript" src="js/login.js" ></script>
+</head><body>
+<header class="header">
+    <div class="banner"></div>
+    <div class="menu">
+    	<a href="/">
+        	<img src="assets/images/logo.png" class="logo">
+        </a>
+        <h1 class="title"><a href="/">iMarket</a></h1>
+        
+    </div>
+</header>    <main>
+        <form id="loginForm" method="POST" action="/login" class="login-form">
+            <section class="register">
+                <h2 class="subtitle">Novo por aqui?</h2>
+                <button href="/facebook" class="btn btn-facebook">Login com o facebok</button>
+                <p>ou</p>
+                <a href="/cadastro" class="btn btn-register">Cadastre-se</a>
+            </section>
+            <section class="login">
+                <h2 class="subtitle">Já sou cadastrado</h2> 
+                <input type="email" name="email" placeholder="E-mail" class="text-field email mandatory" autofocus required>
+                <input type="password" name="password" placeholder="Senha" class="text-field password mandatory" required>
+                <p class="empty-fields-message message hide">Informe login e senha</p>
+                <p class="invalid-fields-message message hide">E-mail ou senha inválidos</p>
+                <button class="btn btn-login mandatory">Entrar</button>
+                <a href="/esqueci-senha" class="forgot-password">Esqueci a senha</a>
+            </section>
+        </form>
+    </main>
+</body>
+</html>

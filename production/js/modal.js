@@ -1,0 +1,1 @@
+define("modal",["doc"],function(a){"use strict";return{show:function(n,o){var d=a(n);d.addClass("modal-open"),a(".modal-container").addClass("modal-container-open"),o.call()}}});
