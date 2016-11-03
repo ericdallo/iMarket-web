@@ -32,7 +32,7 @@
 </header>    <main>
         <form id="loginForm" method="POST" action="/login" class="login-form">
             <section class="login">
-                <h2 class="subtitle">Já sou cadastrado</h2> 
+                <h2 class="subtitle">Já sou cadastrado</h2>
                 <input type="email" name="email" placeholder="E-mail" class="text-field email mandatory" autofocus required>
                 <input type="password" name="password" placeholder="Senha" class="text-field password mandatory" required>
                 <p class="empty-fields-message message hide">Informe login e senha</p>
@@ -42,8 +42,9 @@
             </section>
             <section class="register">
                 <h2 class="subtitle">Novo por aqui?</h2>
+                <p class="email-already-exists message hide">Já existe um usuário com este email cadastrado</p>
                 <button href="/facebook" class="btn btn-facebook">Login com o facebok</button>
-                <p>ou</p>
+                <p class="another-option">ou</p>
                 <a href="/cadastro" class="btn btn-register">Cadastre-se</a>
             </section>
         </form>
