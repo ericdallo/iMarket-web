@@ -149,3 +149,14 @@ $fab-shadow: 4px;
 
     }
 }
+
+@media (min-width: 1800px) {
+    .btn {
+        font-size: 2em;
+        border-radius: 12px;
+    }
+    .text-field {
+        font-size: 2em;
+        border-radius: 12px;
+    }
+}

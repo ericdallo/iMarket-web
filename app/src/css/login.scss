@@ -3,7 +3,6 @@
 @import 'form_components';
 
 .login-form {
-    padding: 6em 2em;
     position: relative;
 
     .message {
@@ -12,28 +11,23 @@
         color: $primary-color-light;
     }
 
-    .row {
+    .subtitle {
         width: 100%;
         display: block;
-    }
-
-    .subtitle {
-        @extend .row;
         font-size: 2em;
         margin-bottom: 1em;
     }
 
     .register {
-        float: left;
-        padding:0 10em;
-        width: calc(50% - 20em);
+        padding: 1em 1em;
+        width: calc(100% - 2em);
 
         .btn-facebook {
             margin-bottom: 1em;
             background: $facebook url($images-dir + 'facebook-logo.png') no-repeat;
-            background-position: 1em center, center center;
+            background-position: 0.5em center, center center;
             background-size: 1.2em;
-            width: calc(100% + 1.5em);
+            width: 100%;
         }
         > p {
             width: 100%;
@@ -43,21 +37,20 @@
         }
 
         .btn-register {
-            @extend .row;
+            display: block;
         }
     }
 
     .login {
-        float: right;
-        padding:0 8em;
-        width: calc(50% - (16em + 2px));
-        border-left: 2px solid $divider-gray;
+        padding: 1em 1em;
+        width: calc(100% - 2em);
 
         .password,
         .btn-login,
         .forgot-password,
         .email {
-            @extend .row;
+            width: 100%;
+            display: block;
             margin-bottom: 1em;
         }
 
@@ -79,6 +72,133 @@
 
             &:hover {
                 text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media (min-width: 520px) {
+    .login-form {
+        .register {
+            padding: 1em 2em;
+            width: calc(100% - 4em);
+        }
+
+        .login {
+            padding: 1em 2em;
+            width: calc(100% - 4em);
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .login-form {
+        .register {
+            padding: 1em 6em;
+            width: calc(100% - 12em);
+        }
+
+        .login {
+            padding: 1em 6em;
+            width: calc(100% - 12em);
+        }
+    }
+}
+
+@media (min-width: 799px) {
+    .login-form {
+        padding: 4em 0;
+
+        .row {
+            width: 100%;
+            display: block;
+        }
+
+        .register {
+            float: left;
+            padding:0 4em;
+            width: calc(50% - 8em);
+
+            .btn-facebook {
+                width: calc(100% + 1.5em);
+                background-position: 1em center, center center;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
+        }
+
+        .login {
+            float: right;
+            padding:0 2em;
+            width: calc(50% - (4em + 2px));
+            border-left: 2px solid $divider-gray;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .login-form {
+        padding: 6em 2em;
+
+        .row {
+            width: 100%;
+            display: block;
+        }
+
+        .register {
+            float: left;
+            padding:0 10em;
+            width: calc(50% - 20em);
+
+            .btn-facebook {
+                width: calc(100% + 1.5em);
+                background-position: 1em center, center center;
+            }
+
+            .btn-register {
+                width: 100%;
+            }
+        }
+
+        .login {
+            float: right;
+            padding:0 8em;
+            width: calc(50% - (16em + 2px));
+            border-left: 2px solid $divider-gray;
+        }
+    }
+}
+
+@media (min-width: 1800px) {
+    .login-form {
+
+        .subtitle {
+            font-size: 4em;
+        }
+        
+        .register {
+            padding: 0 14em;
+            width: calc(50% - 28em);
+
+            > p {
+                font-size: 2em;
+            }
+
+            .btn-facebook {
+
+            }
+        }
+        .login {
+            padding:0 12em;
+            width: calc(50% - (24em + 2px));
+
+            .password,
+            .btn-login,
+            .forgot-password,
+            .email {
+                margin-bottom: 1.5em;
             }
         }
     }
