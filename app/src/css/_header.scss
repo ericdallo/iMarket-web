@@ -119,3 +119,35 @@
         }
     }
 }
+
+@media (min-width: 1600px) {
+    .header {
+
+        .banner {
+            min-height: 5em;
+            background-size: 5em;
+        }
+
+        .menu {
+
+            .logo {
+                height: 5em;
+                left: 3em;
+                top: 0.2em;
+            }
+
+            .title {
+                font-size: 5em;
+            }
+            .navigation {
+                right: 3em;
+                top: 2em;
+
+                .login,.register {
+                    font-size: 1.6em;
+                    margin: 0 1em;
+                }
+            }
+        }
+    }
+}

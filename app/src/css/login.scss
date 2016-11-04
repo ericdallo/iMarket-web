@@ -175,7 +175,7 @@
     .login-form {
 
         .subtitle {
-            font-size: 4em;
+            font-size: 3em;
         }
         
         .register {
@@ -199,6 +199,10 @@
             .forgot-password,
             .email {
                 margin-bottom: 1.5em;
+            }
+
+            .forgot-password {
+                font-size: 1.3em;
             }
         }
     }
