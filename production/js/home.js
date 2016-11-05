@@ -1,1 +1,0 @@
-define(["doc","form","loggedUser"],function(e,o,l){"use strict";var d=l.get();null!=d&&(e(".unlogged").addClass("hide"),e(".logged").removeClass("hide")),e(".logout").on("click",function(e){e.preventDefault(),l.logout(),location.reload()}),o.mask(".cep-form .field","#####-###",o.CEP_SIZE)});

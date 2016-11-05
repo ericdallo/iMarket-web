@@ -1,1 +1,0 @@
-var loggedUser=localStorage.getItem("loggedUser");null!=loggedUser&&(window.location="/");
