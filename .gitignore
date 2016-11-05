@@ -7,3 +7,4 @@ bower_components
 /app/dist/css
 /app/dist/templates
 /app/dist/*.html
+env.js
