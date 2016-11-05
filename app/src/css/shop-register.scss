@@ -56,7 +56,7 @@
             &:focus {
 
                 + .picture {
-                    box-shadow: 0 0 4px $primary-color;
+                    box-shadow: 0 0 4px $gray;
                 }
             }
         }
@@ -97,6 +97,11 @@
                 font-size: 1.2em;
                 font-weight: lighter;
             }
+        }
+
+        .picture.loading-picture:after {
+            background: transparent url($images-dir + 'loading-min.gif') no-repeat;
+            background-size: 100%;
         }
 
     }

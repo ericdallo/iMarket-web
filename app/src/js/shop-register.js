@@ -1,7 +1,9 @@
-define(['doc', 'modal', 'ajax', 'form', 'ENV'], function($, $modal, ajax, form, ENV) {
+define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $modal, $pictureService, ajax, form, ENV) {
     'use strict'
 
     var $form = $('#registerForm');
+
+    var pictureIdToAsign = undefined;
 
     $('#hasInternetDevice').on('change', function() {
         var isChecked = this.checked;
@@ -19,19 +21,39 @@ define(['doc', 'modal', 'ajax', 'form', 'ENV'], function($, $modal, ajax, form, 
 
     $form.find('#shopPicture').on('change', function() {
         if (this.files && this.files[0]) {
+            var $pictureBox = $('.picture').addClass('loading-picture');
+
             var reader = new FileReader();
 
             reader.onload = function (e) {
                 $form.find('.preview').attr('src', e.target.result);
             }
 
-            reader.readAsDataURL(this.files[0]);
+            var pictureFile = this.files[0];
+
+            $pictureService.store(pictureFile, {
+                'success': function(pictureId) {
+                    pictureIdToAsign = pictureId;
+                    $pictureBox.removeClass('loading-picture');
+                },
+                'error': function() {
+                    showError(".error-image-upload-message");
+                    $pictureBox.removeClass('loading-picture');
+                }
+            });
+
+            reader.readAsDataURL(pictureFile);
         }
     });
 
     form.validate('#registerForm', {
         success: function(event) {
             event.preventDefault;
+
+            if (pictureIdToAsign === undefined) {
+                showError(".error-image-upload-message");
+                return;
+            }
 
             var $fab = $form.find('.bt-confirm-register');
 
@@ -50,7 +72,7 @@ define(['doc', 'modal', 'ajax', 'form', 'ENV'], function($, $modal, ajax, form, 
                     number: $form.find('[name="number"]').val(),
                     neighborhood: $form.find('[name="neighborhood"]').val()
                 },
-                hasDelivery: $form.find('[name="hasDelivery"]').first().checked
+                hasDelivery: $form.find('[name="hasDelivery"]').first().checked,
             };
 
             ajax.post(ENV.api.premarkets, preMarket, {
@@ -73,9 +95,7 @@ define(['doc', 'modal', 'ajax', 'form', 'ENV'], function($, $modal, ajax, form, 
                 }
             },{
                 async: true,
-                headers : {
-                    "Content-Type": "application/json"
-                }
+                headers : { "Content-Type": "application/json" }
             });
         },
         error: function() {
