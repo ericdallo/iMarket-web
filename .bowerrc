@@ -1,6 +1,3 @@
 {
-  "directory": "app/dist/bower_components",
-  "proxy" : "http://<host>:<port>",
-  "https-proxy" : "http://<host>:<port>",
-  "strict-ssl"  : false
+  "directory": "app/dist/bower_components"
 }
