@@ -10,5 +10,6 @@ fusermount -u $BUCKET_DIR
 rm -r $BUCKET_DIR
 
 docker pull imarket/imarket-web:latest
+docker stop imarket-web
 docker rm imarket-web
 docker run --name imarket-web -d -p 80:8080 -v /tmp/production.js:/opt/app/app/src/js/env.js imarket/imarket-web
