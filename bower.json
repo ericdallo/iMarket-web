@@ -15,7 +15,7 @@
   "dependencies": {
     "bower": "*",
     "install": "1.0.4",
-    "async-define": "git@github.com:elo7/async-define.git#v1.0.5",
+    "async-define": "https://github.com/elo7/async-define.git#v1.0.5",
     "events-amd": "1.0.2",
     "ajax-amd": "1.1.0",
     "doc-amd": "1.0.10"
