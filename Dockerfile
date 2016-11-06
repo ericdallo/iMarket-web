@@ -9,7 +9,7 @@ WORKDIR /opt/app
 COPY package.json /opt/app
 COPY bower.json /opt/app
 RUN npm install
-RUN bower install --allow-root
+RUN node_modules/bower/bin/bower install --allow-root
 
 ENTRYPOINT /opt/app/docker/startup.sh
 

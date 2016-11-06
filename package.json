@@ -9,6 +9,7 @@
     "proddir": "production/"
   },
   "devDependencies": {
+    "bower": "1.7.9",
     "foreach-in-dir": "1.2.1",
     "http-server": "0.9.0",
     "node-sass": "3.10.0",
@@ -21,7 +22,6 @@
   },
   "scripts": {
     "clean": "rm -rf $npm_package_config_appdist",
-
     "build:css": "node-sass $npm_package_config_appsrc/css/ -r --include-path $npm_package_config_appsrc/css/ --output-style compressed --source-map true -o $npm_package_config_appdist/css/",
     "watch:css": "nodemon -e scss -x 'npm run build:css'",
     "build:js": "mkdir -p $npm_package_config_appdist/js && cp -a $npm_package_config_appsrc/js/. $npm_package_config_appdist/js/ && find $npm_package_config_appdist/js/ -name '*.js' -exec uglifyjs {} -c -m -o {} \\;",
@@ -30,7 +30,6 @@
     "watch:html": "nodemon -e html -x 'node preprocess.js'",
     "watch:context": "nodemon -w app/context.js -x 'node preprocess.js'",
     "build": "npm run build:css && npm run build:js && npm run build:html",
-
     "dev": "npm run build",
     "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:context'",
     "start": "http-server ./app/dist",
