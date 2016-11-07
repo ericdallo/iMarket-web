@@ -35,10 +35,13 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                 'success': function(pictureId) {
                     pictureIdToAsign = pictureId;
                     $pictureBox.removeClass('loading-picture');
+                    $pictureBox.removeClass('loaded-error-picture');
+                    $pictureBox.addClass('loaded-picture');
                 },
                 'error': function() {
                     showError(".error-image-upload-message");
                     $pictureBox.removeClass('loading-picture');
+                    $pictureBox.addClass('loaded-error-picture');
                 }
             });
 

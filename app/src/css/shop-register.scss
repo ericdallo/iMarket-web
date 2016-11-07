@@ -99,9 +99,34 @@
             }
         }
 
-        .picture.loading-picture:after {
-            background: transparent url($images-dir + 'loading-min.gif') no-repeat;
-            background-size: 100%;
+        .picture {
+
+            &.loading-picture {
+                border: none;
+
+                &:after {
+                    background: transparent url($images-dir + 'loading-min.gif') no-repeat;
+                    background-size: 100%;
+                }
+            }
+
+            &.loaded-picture {
+                border: none;
+
+                &:after {
+                    background: transparent url($images-dir + 'loaded.svg') no-repeat;
+                    background-size: 100%;
+                }
+            }
+
+            &.loaded-error-picture {
+                border: 1px solid $alert-error;
+
+                &:after {
+                    background: transparent url($images-dir + 'loaded-error.svg') no-repeat;
+                    background-size: 100%;
+                }
+            }
         }
 
     }
