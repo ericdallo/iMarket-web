@@ -310,7 +310,7 @@
         }
 
         .message {
-            bottom: 2.6em;
+            bottom: 2.8em;
             right: 7em;
 
             &:after {
@@ -369,7 +369,7 @@
     }
 }
 
-@media (min-width: 1199px) and (min-height: 799px) {
+@media (min-width: 1400px) and (min-height: 799px) {
     .shop-register {
 
         .info {
@@ -401,9 +401,18 @@
             }
         }
 
+        .message {
+            bottom: 3.5em;
+            right: 9em;
+
+            &:after {
+                right: -10px;
+            }
+        }
+
         .fab {
-            width: 5em;
-            height: 5em;
+            width: 4em;
+            height: 4em;
         }
     }   
 }

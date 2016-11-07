@@ -175,12 +175,12 @@
     .login-form {
 
         .subtitle {
-            font-size: 3em;
+            font-size: 2.5em;
         }
         
         .register {
-            padding: 0 14em;
-            width: calc(50% - 28em);
+            padding: 0 16em;
+            width: calc(50% - 32em);
 
             .another-option {
                 font-size: 2em;
@@ -191,8 +191,8 @@
             }
         }
         .login {
-            padding:0 12em;
-            width: calc(50% - (24em + 2px));
+            padding:0 14em;
+            width: calc(50% - (28em + 2px));
 
             .password,
             .btn-login,
