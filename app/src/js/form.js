@@ -35,7 +35,7 @@ define('form', ['doc'], function($) {
     };
 
     var applyMask = function(field, mask, event) {
-        const BACKSPACE_KEY = 8;
+        var BACKSPACE_KEY = 8;
 
         var position = 0,
             newField = "",
