@@ -10,6 +10,7 @@ apt-get install apt-transport-https ca-certificates
 export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
 export DOCKER_USER=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/docker_user -H "Metadata-Flavor: Google")
 export DOCKER_PASS=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/docker_pass -H "Metadata-Flavor: Google")
+export DEPLOY_SCRIPT=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/deploy_script -H "Metadata-Flavor: Google")
 
 echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -40,5 +41,5 @@ if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then
   docker stop "$APP" && docker rm -f "$APP"
 fi
 docker run --name $APP -d -p 80:8080 -v /tmp/production.js:/opt/app/app/src/js/env.js imarket/$APP
-echo "$(cat deploy-in-instance.sh)" > /opt/deploy.sh
+echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
 chmod +x /opt/deploy.sh
