@@ -5,8 +5,7 @@
   "main": "",
   "config": {
     "appdist": "app/dist/",
-    "appsrc": "app/src/",
-    "proddir": "production/"
+    "appsrc": "app/src/"
   },
   "devDependencies": {
     "bower": "1.7.9",
