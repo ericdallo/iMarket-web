@@ -15,5 +15,3 @@ if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then
   docker stop "$APP" && docker rm -f "$APP"
 fi
 docker run --name $APP -d -p 80:8080 -v /tmp/production.js:/opt/app/app/src/js/env.js imarket/$APP
-echo "$(cat /opt/app/scripts/deploy-in-instance.sh)" > /opt/deploy.sh
-chmod +x /opt/deploy.sh
