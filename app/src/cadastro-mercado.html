@@ -17,18 +17,18 @@
                 <section class="requirements">
                     <header><h2>Requisitos</h2></header>
                     <main>
-                        <input id="hasInternetDevice" type="checkbox" class="checkbox" autofocus>
+                        <input id="hasInternetDevice" type="checkbox" class="checkbox" autofocus checked>
                         <label for="hasInternetDevice" class="device-need check-label">Possuo um dispositivo com acesso a internet</label>
                     </main>
                 </section>
-                <section class="basic required disabled">
+                <section class="basic required ">
                     <header><h2 class="changable-title">Dados</h2></header>
                     <main>
-                        <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory" disabled required>
-                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj" disabled required>
-                        <input name="email" placeholder="Email de contato" class="text-field basic-field mandatory" disabled required>
+                        <input name="name" placeholder="Nome do mercado" class="text-field basic-field mandatory"  required>
+                        <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj"  required>
+                        <input name="email" placeholder="Email de contato" class="text-field basic-field mandatory"  required>
 
-                        <input type="file" id="shopPicture" name="picture" class="picture-field mandatory" disabled required>
+                        <input type="file" id="shopPicture" name="picture" class="picture-field mandatory"  required>
                         <label for="shopPicture" class="picture">
                             <img src="<!--@echo imagesDir-->register-shop-picture.png" class="preview">
                             <div class="explanation">
@@ -41,36 +41,36 @@
                 </section>
             </div>
             <div class="right">
-                <section class="address required disabled">
+                <section class="address required ">
                     <header><h2 class="changable-title">Endereço</h2></header>
                     <main >
                         <div class="first-row">
-                            <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory" disabled required>
+                            <input name="cep" placeholder="CEP do mercado" class="text-field cep mandatory"  required>
                         </div>
                         <div class="second-row">
                             <div class="states select-field">
-                                <select name="state" class="mandatory" disabled required>
-                                    <option value="" disabled selected>Estado</option>
+                                <select name="state" class="mandatory"  required>
+                                    <option value=""  selected>Estado</option>
                                     <!-- @foreach $state in states -->
                                     <option value="$state">$state</option>
                                     <!-- @endfor -->
                                 </select>
                             </div>
-                            <input name="city" placeholder="Cidade" class="text-field city mandatory" disabled required>
+                            <input name="city" placeholder="Cidade" class="text-field city mandatory"  required>
                         </div>
                         <div class="third-row">
-                            <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory" disabled required>
-                            <input name="number" placeholder="Nº" class="text-field number mandatory" disabled required>
+                            <input name="address" placeholder="Endereço do mercado" class="text-field full-address mandatory"  required>
+                            <input name="number" placeholder="Nº" class="text-field number mandatory"  required>
                         </div>
                         <div class="fourth-row">
-                            <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory" disabled required>
+                            <input name="neighborhood" placeholder="Bairro" class="text-field neighborhood mandatory"  required>
                         </div>
                     </main>
                 </section>
-                <section class="delivery required disabled">
+                <section class="delivery required ">
                     <header><h2 class="changable-title">Delivery</h2></header>
                     <main>
-                        <input type="checkbox" id="hasDelivery" name="hasDelivery" class="checkbox mandatory" disabled>
+                        <input type="checkbox" id="hasDelivery" name="hasDelivery" class="checkbox mandatory" >
                         <label for="hasDelivery" class="check-label delivery-text">Meu estabelecimento possui a opção delivery e estou ciente de que a entrega é de total responsabilidade do mesmo.</label>
                     </main>
                 </section>
@@ -78,7 +78,7 @@
             <p class="error-image-upload-message message hide">Ocorreu um problema ao salvar a imagem do mercado, tente novamente</p>
             <p class="empty-fields-message message hide">Informe corretamente todos os campos</p>
             <p class="error-api-message message hide">Ocorreu um erro e não pudemos salvar seu cadastro, tente novamente mais tarde</p>
-            <button class="fab bt-confirm-register fab-disabled mandatory" disabled></button>
+            <button class="fab bt-confirm-register mandatory" ></button>
         </form>
     </main>
     <section class="modal modal-success">
