@@ -47,6 +47,12 @@ docker run --name $APP -d \
     -v /opt/imarketbr.com.key:/etc/nginx/ssl/imarketbr.com.key \
     -p 80:80 $APP
 
+docker run --name $APP -d \
+    -v /opt/nginx.conf:/etc/nginx/nginx.conf \
+    -v /opt/imarketbr.com.crt:/etc/nginx/ssl/imarketbr.com.crt \
+    -v /opt/imarketbr.com.key:/etc/nginx/ssl/imarketbr.com.key \
+    --link imarket-web:imarket-web -p 80:80 -p 443:443 $APP
+
 # Deploy script
 echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
 chmod +x /opt/deploy.sh
