@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -ve
 
 curl -s "https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh" | bash
@@ -25,13 +24,30 @@ systemctl enable docker
 
 docker login --username=$DOCKER_USER --password=$DOCKER_PASS
 
+# Mount bucket
+BUCKET_DIR=/opt/bucket
+
+mkdir -p $BUCKET_DIR
+gcsfuse configuration.imarketbr.com $BUCKET_DIR
+
+cp $BUCKET_DIR/imarket-web/prod/production.js /opt
+cp $BUCKET_DIR/imarket-web/prod/nginx.conf /opt
+cp $BUCKET_DIR/ssl/imarketbr.com.crt /opt
+cp $BUCKET_DIR/ssl/imarketbr.com.key /opt
+
+# Nginx
 APP=nginx
-docker pull imarket/$APP
+docker pull $APP
 if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then
   docker stop "$APP" && docker rm -f "$APP"
 fi
-docker run --name $APP -d -p 80:80 imarket/$APP
+docker run --name $APP -d \
+    -v /opt/nginx.conf:/etc/nginx/nginx.conf \
+    -v /opt/imarketbr.com.crt:/etc/nginx/ssl/imarketbr.com.crt \
+    -v /opt/imarketbr.com.key:/etc/nginx/ssl/imarketbr.com.key \
+    -p 80:80 $APP
 
+# Deploy script
 echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
 chmod +x /opt/deploy.sh
 bash /opt/deploy.sh
