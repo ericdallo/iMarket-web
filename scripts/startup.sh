@@ -25,6 +25,13 @@ systemctl enable docker
 
 docker login --username=$DOCKER_USER --password=$DOCKER_PASS
 
+APP=nginx
+docker pull imarket/$APP
+if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then
+  docker stop "$APP" && docker rm -f "$APP"
+fi
+docker run --name $APP -d -p 80:80 imarket/$APP
+
 echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
 chmod +x /opt/deploy.sh
 bash /opt/deploy.sh
