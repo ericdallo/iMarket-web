@@ -35,25 +35,20 @@ cp $BUCKET_DIR/imarket-web/prod/nginx.conf /opt
 cp $BUCKET_DIR/ssl/imarketbr.com.crt /opt
 cp $BUCKET_DIR/ssl/imarketbr.com.key /opt
 
+# Deploy script
+echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
+chmod +x /opt/deploy.sh
+bash /opt/deploy.sh
+
 # Nginx
 APP=nginx
 docker pull $APP
 if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then
   docker stop "$APP" && docker rm -f "$APP"
 fi
-docker run --name $APP -d \
-    -v /opt/nginx.conf:/etc/nginx/nginx.conf \
-    -v /opt/imarketbr.com.crt:/etc/nginx/ssl/imarketbr.com.crt \
-    -v /opt/imarketbr.com.key:/etc/nginx/ssl/imarketbr.com.key \
-    -p 80:80 $APP
 
 docker run --name $APP -d \
     -v /opt/nginx.conf:/etc/nginx/nginx.conf \
     -v /opt/imarketbr.com.crt:/etc/nginx/ssl/imarketbr.com.crt \
     -v /opt/imarketbr.com.key:/etc/nginx/ssl/imarketbr.com.key \
     --link imarket-web:imarket-web -p 80:80 -p 443:443 $APP
-
-# Deploy script
-echo "$DEPLOY_SCRIPT" > /opt/deploy.sh
-chmod +x /opt/deploy.sh
-bash /opt/deploy.sh
