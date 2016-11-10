@@ -43,7 +43,9 @@ bash /opt/deploy.sh
 # Nginx container
 APP=nginx
 docker pull $APP
-if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then docker stop "$APP" && docker rm -f "$APP" fi
+if docker ps | awk -v app="APP" 'NR>1{  ($(NF) == APP )  }'; then 
+    docker stop "$APP" && docker rm -f "$APP" 
+fi
 
 docker run --name $APP -d \
     -v /opt/nginx.conf:/etc/nginx/nginx.conf \
