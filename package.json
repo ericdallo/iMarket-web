@@ -32,7 +32,7 @@
     "dev": "npm run build",
     "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:context'",
     "start": "http-server ./app/dist",
-    "deploy": "npm run build && npm run start",
+    "deploy": "npm run build && http-server ./app/dist -S -C imarketbr.com.crt -K imarketbr.com.key",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
