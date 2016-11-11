@@ -2,7 +2,7 @@
 
 APP_WEB=imarket-web
 
-docker pull imarket/$APP_WEB:latest
+docker pull imarket/$APP_WEB
 if docker ps | awk -v app="APP_WEB" 'NR>1{  ($(NF) == APP_WEB )  }'; then 
 	docker stop "$APP_WEB" && docker rm -f "$APP_WEB" 
 fi
