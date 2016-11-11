@@ -30,7 +30,6 @@ BUCKET_DIR=/opt/bucket
 mkdir -p $BUCKET_DIR
 gcsfuse configuration.imarketbr.com $BUCKET_DIR
 
-cp -rfv $BUCKET_DIR/imarket-web/prod/production.js /opt
 cp -rfv $BUCKET_DIR/imarket-web/prod/nginx.conf /opt
 cp -rfv $BUCKET_DIR/ssl/imarketbr.com.crt /opt
 cp -rfv $BUCKET_DIR/ssl/imarketbr.com.key /opt
