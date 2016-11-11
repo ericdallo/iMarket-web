@@ -2,13 +2,13 @@
   "name": "imarket-web",
   "version": "0.0.1",
   "description": "iMarket front end marketplace",
-  "main": "",
   "config": {
     "appdist": "app/dist/",
     "appsrc": "app/src/"
   },
   "devDependencies": {
     "bower": "1.7.9",
+    "express": "4.14.0",
     "foreach-in-dir": "1.2.1",
     "http-server": "0.9.0",
     "node-sass": "3.10.0",
@@ -17,6 +17,7 @@
     "preprocess": "3.1.0",
     "preprocess-cli": "0.1.0",
     "properties": "1.2.1",
+    "spdy": "3.4.4",
     "uglify-js": "2.7.3"
   },
   "scripts": {
@@ -32,7 +33,7 @@
     "dev": "npm run build",
     "postdev": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run watch:html' 'npm run watch:context'",
     "start": "http-server ./app/dist",
-    "deploy": "npm run build && http-server ./app/dist -S -C imarketbr.com.crt -K imarketbr.com.key",
+    "deploy": "npm run build && node app/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
