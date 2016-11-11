@@ -30,10 +30,10 @@ BUCKET_DIR=/opt/bucket
 mkdir -p $BUCKET_DIR
 gcsfuse configuration.imarketbr.com $BUCKET_DIR
 
-cp $BUCKET_DIR/imarket-web/prod/production.js /opt
-cp $BUCKET_DIR/imarket-web/prod/nginx.conf /opt
-cp $BUCKET_DIR/ssl/imarketbr.com.crt /opt
-cp $BUCKET_DIR/ssl/imarketbr.com.key /opt
+cp -rfv $BUCKET_DIR/imarket-web/prod/production.js /opt
+cp -rfv $BUCKET_DIR/imarket-web/prod/nginx.conf /opt
+cp -rfv $BUCKET_DIR/ssl/imarketbr.com.crt /opt
+cp -rfv $BUCKET_DIR/ssl/imarketbr.com.key /opt
 
 # Deploy script
 echo "$DEPLOY_SCRIPT" > /opt/deploy.sh

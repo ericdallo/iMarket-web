@@ -1,6 +1,9 @@
 #!/bin/bash
 
 APP_WEB=imarket-web
+BUCKET_DIR=/opt/bucket
+
+cp -rfv $BUCKET_DIR/$APP_WEB/prod/production.js /opt
 
 docker pull imarket/$APP_WEB
 if docker ps | awk -v app="APP_WEB" 'NR>1{  ($(NF) == APP_WEB )  }'; then 
