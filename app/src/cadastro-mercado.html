@@ -28,7 +28,7 @@
                         <input name="cnpj" placeholder="CNPJ do mercado" class="text-field basic-field mandatory cnpj"  required>
                         <input name="email" placeholder="Email de contato" class="text-field basic-field mandatory"  required>
 
-                        <input type="file" id="shopPicture" name="picture" class="picture-field mandatory"  required>
+                        <input type="file" id="shopPicture" name="picture" class="picture-field">
                         <label for="shopPicture" class="picture">
                             <img src="<!--@echo imagesDir-->register-shop-picture.png" class="preview">
                             <div class="explanation">
@@ -76,6 +76,9 @@
                 </section>
             </div>
             <p class="error-image-upload-message message hide">Ocorreu um problema ao salvar a imagem do mercado, tente novamente</p>
+            <p class="large-size-image-upload-message message hide">A imagem deve ser menor que 5MB, tente novamente</p>
+            <p class="waiting-approval-message message hide">Já estamos avaliando este mercado, aguarde receber um contato nosso.</p>
+            <p class="market-already-approved-message message hide">Já existe um mercado com este CNPJ.</p>
             <p class="empty-fields-message message hide">Informe corretamente todos os campos</p>
             <p class="error-api-message message hide">Ocorreu um erro e não pudemos salvar seu cadastro, tente novamente mais tarde</p>
             <button class="fab bt-confirm-register mandatory" ></button>

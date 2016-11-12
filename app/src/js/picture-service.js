@@ -11,6 +11,8 @@ define('pictureService', ['ajax', 'ENV'], function(ajax, ENV) {
             xhr.addEventListener("load", function (response) {
                 if (xhr.status >= 200 && xhr.status < 300) {
                     callback.success.call(this, xhr.responseText);
+                } else if(xhr.status === 413) {
+                    callback.largeSize.call(this);
                 } else {
                     callback.error.call(this);
                 }

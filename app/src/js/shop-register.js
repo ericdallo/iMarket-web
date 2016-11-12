@@ -1,9 +1,11 @@
 define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $modal, $pictureService, ajax, form, ENV) {
     'use strict'
 
-    var $form = $('#registerForm');
+    var ALREADY_REPORTED = 208,
+        NOT_ACCEPTABLE   = 406,
+        pictureIdToAsign = undefined,
+        $form = $('#registerForm');
 
-    var pictureIdToAsign = undefined;
 
     $('#hasInternetDevice').on('change', function() {
         var isChecked = this.checked;
@@ -22,6 +24,7 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
     $form.find('#shopPicture').on('change', function() {
         if (this.files && this.files[0]) {
             var $pictureBox = $('.picture').addClass('loading-picture');
+            $pictureBox.removeClass('loaded-error-picture');
 
             var reader = new FileReader();
 
@@ -38,8 +41,13 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                     $pictureBox.removeClass('loaded-error-picture');
                     $pictureBox.addClass('loaded-picture');
                 },
+                'largeSize': function() {
+                    showMessage(".large-size-image-upload-message");
+                    $pictureBox.removeClass('loading-picture');
+                    $pictureBox.addClass('loaded-error-picture');
+                },
                 'error': function() {
-                    showError(".error-image-upload-message");
+                    showMessage(".error-image-upload-message");
                     $pictureBox.removeClass('loading-picture');
                     $pictureBox.addClass('loaded-error-picture');
                 }
@@ -52,11 +60,6 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
     form.validate('#registerForm', {
         success: function(event) {
             event.preventDefault;
-
-            if (pictureIdToAsign === undefined) {
-                showError(".error-image-upload-message");
-                return;
-            }
 
             var $fab = $form.find('.bt-confirm-register');
 
@@ -75,22 +78,35 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                     number: $form.find('[name="number"]').val(),
                     neighborhood: $form.find('[name="neighborhood"]').val()
                 },
-                hasDelivery: $form.find('[name="hasDelivery"]').first().checked,
+                has_delivery: $form.find('[name="hasDelivery"]').first().checked
             };
+
+            if (pictureIdToAsign != undefined) {
+                preMarket.picture = { 
+                    id: pictureIdToAsign,
+                    name: $form.find('[name="picture"]').first().files[0].name
+                };
+            }
 
             ajax.post(ENV.api.premarkets, preMarket, {
                 'success': function(response, xhr) {
-                    $modal.show('.modal-success', function() {
-                        $form.find('.required').addClass('disabled');
-                        $form.find('.fab').addClass('fab-disabled');
+                    if (response.status === ALREADY_REPORTED) {
+                        showMessage(".waiting-approval-message");
+                    } else if (response.status === NOT_ACCEPTABLE) {
+                        showMessage(".market-already-approved-message");
+                    } else {
+                        $modal.show('.modal-success', function() {
+                            $form.find('.required').addClass('disabled');
+                            $form.find('.fab').addClass('fab-disabled');
 
-                        $form.find('.mandatory').each(function(element) {
-                            element.disabled = true;
+                            $form.find('.mandatory').each(function(element) {
+                                element.disabled = true;
+                            });
                         });
-                    });
+                    }
                 },
                 'error': function(response, xhr) {
-                    showError(".error-api-message");
+                    showMessage(".error-api-message");
                 },
                 'complete': function(xhr) {
                     $fab.first().disabled = false;
@@ -102,11 +118,11 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
             });
         },
         error: function() {
-            showError(".empty-fields-message");
+            showMessage(".empty-fields-message");
         }
     });
 
-    var showError = function(messageClass) {
+    var showMessage = function(messageClass) {
         var $invalidMessage = $form.find(messageClass);
         $invalidMessage.toggleClass('hide');
         setTimeout(function() {
