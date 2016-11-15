@@ -104,7 +104,7 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                     });
                 },
                 'error': function(response, xhr) {
-                    if (response.status === NOT_ACCEPTABLE) {
+                    if (xhr.status === NOT_ACCEPTABLE) {
                         showMessage(".market-already-approved-message");
                         return;
                     } 
