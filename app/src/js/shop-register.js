@@ -92,20 +92,22 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                 'success': function(response, xhr) {
                     if (response.status === ALREADY_REPORTED) {
                         showMessage(".waiting-approval-message");
-                    } else if (response.status === NOT_ACCEPTABLE) {
-                        showMessage(".market-already-approved-message");
-                    } else {
-                        $modal.show('.modal-success', function() {
-                            $form.find('.required').addClass('disabled');
-                            $form.find('.fab').addClass('fab-disabled');
-
-                            $form.find('.mandatory').each(function(element) {
-                                element.disabled = true;
-                            });
-                        });
+                        return;
                     }
+                    $modal.show('.modal-success', function() {
+                        $form.find('.required').addClass('disabled');
+                        $form.find('.fab').addClass('fab-disabled');
+
+                        $form.find('.mandatory').each(function(element) {
+                            element.disabled = true;
+                        });
+                    });
                 },
                 'error': function(response, xhr) {
+                    if (response.status === NOT_ACCEPTABLE) {
+                        showMessage(".market-already-approved-message");
+                        return;
+                    } 
                     showMessage(".error-api-message");
                 },
                 'complete': function(xhr) {
