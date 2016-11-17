@@ -47,8 +47,8 @@ if docker ps | awk -v app="NGINX" 'NR>1{  ($(NF) == NGINX )  }'; then
     docker stop "$NGINX" && docker rm -f "$NGINX" 
 fi
 
-docker run --name $APP -d \
+docker run --name $NGINX -d \
     -v /opt/nginx.conf:/etc/nginx/nginx.conf \
     -v /opt/imarketbr.com.crt:/etc/nginx/ssl/imarketbr.com.crt \
     -v /opt/imarketbr.com.key:/etc/nginx/ssl/imarketbr.com.key \
-    --link $APP:$APP -p 80:80 -p 443:443 $APP
+    --link $APP:$APP -p 80:80 -p 443:443 $NGINX
