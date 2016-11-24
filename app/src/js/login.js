@@ -14,8 +14,12 @@ define(['doc', 'ajax', 'form', 'loggedUser','facebook', 'ENV'], function($, ajax
 
             ajax.post(ENV.api.login, loginData, {
                 'success': function(response, xhr) {
-                    $loggedUser.store(response);                    
-                    window.location = "/";
+                    var user = $loggedUser.store(response);
+                    if ($loggedUser.isMarket()) {
+                        window.location = "/" + user.url + "/mercado";
+                    } else {
+                        window.location = "/";
+                    }
                 },
                 'error': function(response, xhr) {
                     showMessage('.invalid-fields-message');
