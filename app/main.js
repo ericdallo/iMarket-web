@@ -16,7 +16,7 @@ app.get('/:marketUrl/mercado', function(req, res) {
 });
 
 if (process.env.PROD) {
-    options = {
+    var options = {
         key: fs.readFileSync(__dirname + '/../imarketbr.com.key'),
         cert:  fs.readFileSync(__dirname + '/../imarketbr.com.crt')
     }
