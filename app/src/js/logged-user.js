@@ -14,8 +14,7 @@ define('loggedUser', [], function() {
 
     return {
         'store': function(user) {
-            localStorage.setItem(STORAGE_KEY, user);
-            return JSON.parse(user);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
         },
         'get': function() {
             return get();

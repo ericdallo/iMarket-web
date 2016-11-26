@@ -1,10 +1,28 @@
+<script async type="text/javascript" src="<!-- @echo jsDir-->login-service.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->header.js" ></script>
+<input type="checkbox" id="menu-switch">
 <header class="header">
     <div class="banner"></div>
     <div class="content">
+    	<label for="menu-switch" class="menu hide">
+            <span>menu</span>
+        </label>
         <a class="title" href="/">
             <h1>iMarket</h1>
             <img src="<!--@echo imagesDir-->logo.png" class="logo">
         </a>
+        <aside class="side-menu">
+            <a href="configuracoes">
+                <figure class="avatar">
+                    <div class="picture"><img src="<!--@echo imagesDir-->buyer-avatar.png"></div>
+                    <figcaption>Buyer</figcaption>
+                </figure>
+            </a>
+            <ul>
+                <li><a href="mercados" class="link">Meus mercados</a></li>
+                <li><a href="compras" class="link">Minhas compras</a></li>
+            </ul>
+        </aside>
         <!-- @extendable -->
     </div>
 </header>

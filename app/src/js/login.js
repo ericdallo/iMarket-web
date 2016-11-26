@@ -1,32 +1,20 @@
-define(['doc', 'ajax', 'form', 'loggedUser','facebook', 'ENV'], function($, ajax, form, $loggedUser, facebook, ENV) {
+define(['doc', 'ajax', 'form', 'loggedUser', 'loginService','facebook', 'ENV'], function($, ajax, form, $loggedUser, $loginService, facebook, ENV) {
     'use strict'
 
     var $form = $('#loginForm');
 
     form.validate('#loginForm', {
         success: function(event) {
-            event.preventDefault;
+            event.preventDefault();
 
-            var loginData = {
-                username: $(this).find('[name="email"]').val(),
-                password: $(this).find('[name="password"]').val()
-            };
+            var username = $(this).find('[name="email"]').val(),
+                password = $(this).find('[name="password"]').val();
 
-            ajax.post(ENV.api.login, loginData, {
-                'success': function(response, xhr) {
-                    var user = $loggedUser.store(response);
-                    if ($loggedUser.isMarket()) {
-                        window.location = "/" + user.url + "/mercado";
-                    } else {
-                        window.location = "/";
-                    }
-                },
-                'error': function(response, xhr) {
+            $loginService.login(username, password, {
+                'error': function() {
                     showMessage('.invalid-fields-message');
-                },
-                'complete': function(xhr) {
                 }
-            },{async: true});
+            });
         },
         error: function() {
             showMessage('.empty-fields-message');
@@ -37,9 +25,6 @@ define(['doc', 'ajax', 'form', 'loggedUser','facebook', 'ENV'], function($, ajax
         event.preventDefault();
 
         facebook.register({
-            'success': function (user) {
-                window.location = '/';
-            },
             error: function() {
                 showMessage('.email-already-exists');
             }
