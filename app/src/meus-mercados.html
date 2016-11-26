@@ -1,0 +1,32 @@
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Meus mercados</title>
+<meta name="description" content="">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->buyer-home.css">
+<script type="text/javascript" src="<!-- @echo jsDir-->only-buyer-filter.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->header.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->market-home.js" ></script>
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+        <nav class="navigation">
+            <div class="unlogged">
+                <a href="/login" class="login">Entrar</a>
+                <a href="/login"><img src="<!--@echo imagesDir-->login.svg" class="login-icon"></a>
+                <a href="/cadastro" class="register">Cadastre-se</a>
+            </div>
+            <div class="logged hide">
+                <button class="logout">Sair</button>
+            </div>
+        </nav>
+    <!-- @endextend -->
+    <main class="market-home">
+        <section class="carousel">
+            <img src="<!--@echo imagesDir-->market-banner.jpg">            
+        </section>
+
+        <div class="market-title">
+            
+        </div>
+    </main>
+<!-- @endextend -->

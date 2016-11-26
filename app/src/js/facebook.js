@@ -15,24 +15,7 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-define('facebook', ['ajax', 'loggedUser', 'ENV'], function(ajax, $loggedUser, ENV) {
-
-    var register = function(user, callback) {
-        ajax.post(ENV.api.register, user, {
-            'success': function(response, xhr) {
-                $loggedUser.store(user);
-                callback.success(user);
-            },
-            'error': function(response, xhr) {
-                callback.error(user);
-            }
-        },{
-            async: true,
-            headers : {
-                "Content-Type": "application/json"
-            }
-        });
-    };
+define('facebook', ['ajax', 'loginService', 'loggedUser', 'ENV'], function(ajax, $loginService, $loggedUser, ENV) {
 
     return {
         'register': function(callback) {
@@ -40,13 +23,7 @@ define('facebook', ['ajax', 'loggedUser', 'ENV'], function(ajax, $loggedUser, EN
                 if (response.status === 'connected') {
                     FB.api("/me?fields=email,name", function (data) {
                         if (data && !data.error) {
-                            var user = {
-                                name: data.name,
-                                email: data.email,
-                                password: data.id,
-                                login_origin: 'FACEBOOK'
-                             };
-                            register(user, callback);
+                            $loginService.register(data.name, data.email, data.id, 'FACEBOOK', callback);
                         }
                     });
                 } else {
