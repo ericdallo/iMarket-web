@@ -1,12 +1,12 @@
-define('loginService',['ajax', 'loggedUser', 'ENV'], function(ajax, $loggedUser, ENV) {
+define('loginService',['ajax', 'loggedUser', 'path', 'ENV'], function(ajax, $loggedUser, $path, ENV) {
     'use strict'
 
     var saveLoggedUser = function(user) {
-        $loggedUser.store(user);
+        $loggedUser.store(user);        
         if ($loggedUser.isMarket()) {
-            window.location = "/" + user.url + "/mercado";
+            $path.redirect(ENV.market.home, user.url);
         } else {
-            window.location = "/meus-mercados";
+            $path.redirect(ENV.user.home);
         }
     };
     
@@ -19,7 +19,7 @@ define('loginService',['ajax', 'loggedUser', 'ENV'], function(ajax, $loggedUser,
 
             ajax.post(ENV.api.login, loginData, {
                 'success': function(response, xhr) {
-                    saveLoggedUser(response);
+                    saveLoggedUser(JSON.parse(response));
                     callback.success(user, this);
                 },
                 'error': function(response, xhr) {
