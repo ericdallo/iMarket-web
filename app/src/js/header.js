@@ -1,4 +1,4 @@
-define(['doc', 'loginService', 'loggedUser'], function($, $loginService, $loggedUser) {
+define(['doc', 'loginService', 'loggedUser', 'path'], function($, $loginService, $loggedUser, $path) {
     'use strict'
 
     var loggedUser = $loggedUser.get();
@@ -12,6 +12,14 @@ define(['doc', 'loginService', 'loggedUser'], function($, $loginService, $logged
     $('.logout').on('click', function(event) {
         event.preventDefault();
         $loginService.logout();
-        window.location = "/";
+        $path.home();
+    });
+
+    $('#menu-switch').on('change', function() {
+        if (this.checked) {
+            
+        } else {
+
+        }
     });
 });

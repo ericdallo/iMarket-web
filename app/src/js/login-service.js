@@ -1,5 +1,9 @@
-define('loginService',['ajax', 'loggedUser', 'path', 'ENV'], function(ajax, $loggedUser, $path, ENV) {
+define('loginService',['http', 'loggedUser', 'path', 'ENV'], function($http, $loggedUser, $path, ENV) {
     'use strict'
+
+    function isFunction(fn) {
+        return fn && typeof fn === "function";
+    }
 
     var saveLoggedUser = function(user) {
         $loggedUser.store(user);        
@@ -17,15 +21,19 @@ define('loginService',['ajax', 'loggedUser', 'path', 'ENV'], function(ajax, $log
                 password: password
             };
 
-            ajax.post(ENV.api.login, loginData, {
-                'success': function(response, xhr) {
+            $http.postForm(ENV.api.login, loginData, {
+                success: function(response) {
                     saveLoggedUser(JSON.parse(response));
-                    callback.success(user, this);
+                    if (isFunction(callback.success)) {
+                        callback.success(user, this);
+                    }
                 },
-                'error': function(response, xhr) {
-                    callback.error();
+                error: function(response) {
+                    if (isFunction(callback.error)) {
+                        callback.error();
+                    }
                 }
-            },{async: true});
+            });
         },
         'register': function(name, username, password, loginOrigin, callback) {
             var registerData = {
@@ -35,27 +43,23 @@ define('loginService',['ajax', 'loggedUser', 'path', 'ENV'], function(ajax, $log
                 login_origin: loginOrigin
             };
 
-            ajax.post(ENV.api.register, registerData, {
-                'success': function(response, xhr) {
+            $http.post(ENV.api.register, registerData, {
+                success: function(response) {
                     saveLoggedUser(response);
-                    callback.success(response, this);
+                    if (isFunction(callback.success)) {
+                        callback.success(response, this);
+                    }
                 },
-                'error': function(response, xhr) {
-                    callback.error(response, this);
-                }
-            },{
-                async: true,
-                headers : {
-                    "Content-Type": "application/json"
+                error: function(response) {
+                    if (isFunction(callback.error)) {
+                        callback.error(response, this);
+                    }
                 }
             });
         },
         'logout': function() {
             $loggedUser.logout();
-            ajax.post(ENV.api.login + '?_method=DELETE',{}, {},{
-                async: true,
-                headers : { "Content-Type": "application/json"}
-            });
+            $http.delete(ENV.api.login,{}, {});
         }
     } 
 });

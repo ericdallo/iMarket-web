@@ -1,4 +1,4 @@
-define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $modal, $pictureService, ajax, form, ENV) {
+define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $modal, $pictureService, $http, form, ENV) {
     'use strict'
 
     var ALREADY_REPORTED = 208,
@@ -88,8 +88,8 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                 };
             }
 
-            ajax.post(ENV.api.premarkets, preMarket, {
-                'success': function(response, xhr) {
+            $http.post(ENV.api.premarkets, preMarket, {
+                success: function(response) {
                     if (response.status === ALREADY_REPORTED) {
                         showMessage(".waiting-approval-message");
                         return;
@@ -103,20 +103,17 @@ define(['doc', 'modal', 'pictureService','ajax', 'form', 'ENV'], function($, $mo
                         });
                     });
                 },
-                'error': function(response, xhr) {
-                    if (xhr.status === NOT_ACCEPTABLE) {
+                error: function(response) {
+                    if (response.status === NOT_ACCEPTABLE) {
                         showMessage(".market-already-approved-message");
                         return;
                     } 
                     showMessage(".error-api-message");
                 },
-                'complete': function(xhr) {
+                complete: function() {
                     $fab.first().disabled = false;
                     $fab.removeClass('loading');
                 }
-            },{
-                async: true,
-                headers : { "Content-Type": "application/json" }
             });
         },
         error: function() {

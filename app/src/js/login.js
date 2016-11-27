@@ -1,4 +1,4 @@
-define(['doc', 'ajax', 'form', 'loggedUser', 'loginService','facebook', 'ENV'], function($, ajax, form, $loggedUser, $loginService, facebook, ENV) {
+define(['doc', 'form', 'loginService','facebook', 'ENV'], function($, form, $loginService, $facebook, ENV) {
     'use strict'
 
     var $form = $('#loginForm');
@@ -24,7 +24,7 @@ define(['doc', 'ajax', 'form', 'loggedUser', 'loginService','facebook', 'ENV'], 
     $form.find('.btn-facebook').on('click', function(event) {
         event.preventDefault();
 
-        facebook.register({
+        $facebook.register({
             error: function() {
                 showMessage('.email-already-exists');
             }

@@ -1,4 +1,4 @@
-define('pictureService', ['ajax', 'ENV'], function(ajax, ENV) {
+define('pictureService', ['ENV'], function(ENV) {
     'use strict'
 
     return {

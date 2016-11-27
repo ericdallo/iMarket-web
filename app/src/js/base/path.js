@@ -12,6 +12,9 @@ define('path', ['ENV'], function(ENV) {
                 newPath = path.replace('{' + (i-1) + '}', arguments[i]);
             }
             window.location = newPath;
+        },
+        'home': function() {
+            window.location = '/';
         }
     }
 });

@@ -15,7 +15,7 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-define('facebook', ['ajax', 'loginService', 'loggedUser', 'ENV'], function(ajax, $loginService, $loggedUser, ENV) {
+define('facebook', ['loginService'], function($loginService) {
 
     return {
         'register': function(callback) {
