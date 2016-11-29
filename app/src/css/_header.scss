@@ -8,14 +8,17 @@
 }
 
 #menu-switch {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 
     &:checked {
 
         ~ .header .menu {
 
             span {
-                transform: rotate(180deg);
+                @include transform(rotate(180deg));
 
                 &:before,
                 &:after {
@@ -24,12 +27,12 @@
 
                 &:before {
                     top: 0;
-                    transform: translateX(1em) rotate(45deg);
+                    @include transform(translateX(1em) rotate(45deg));
                 }
 
                 &:after {
                     bottom: 0;
-                    transform: translateX(1em) rotate(-45deg);
+                    @include transform(translateX(1em) rotate(-45deg));
                 }
             }
         }
@@ -37,6 +40,18 @@
         ~ .header .side-menu {
             left: 0;
             box-shadow: 4px 0 2px -2px rgba(0,0,0,0.75);
+        }
+    }
+
+    $menu-shadow: 4px;
+
+    &:focus {
+        ~ .header .menu span {
+            
+            &:before,
+            &:after {
+                box-shadow: 0 0 $menu-shadow*2 rgba(0,0,0,.14),0 $menu-shadow*2 $menu-shadow*4 rgba(0,0,0,.28);   
+            }
         }
     }
 }
@@ -85,7 +100,7 @@
                 height: $menu-height;
                 background: white;
                 border-radius: 20%;
-                transition: transform 0.3s;
+                @include transition(transform 0.3s);
 
                 &:before,
                 &:after {
@@ -102,12 +117,12 @@
                 &:before { 
                     top: $menu-spacing; 
                     transform-origin: top right;
-                    transition: transform 0.3s, width 0.3s, top 0.3s;
+                    @include transition(transform 0.3s, width 0.3s, top 0.3s);
                 }
                 &:after { 
                     bottom: $menu-spacing;
                     transform-origin: bottom right;
-                    transition: transform 0.3s, width 0.3s, bottom 0.3s;
+                    @include transition(transform 0.3s, width 0.3s, bottom 0.3s);
                 }
             }
         }
@@ -119,7 +134,7 @@
             height: 100%;
             position: fixed;
             z-index: 10;
-            transition: left 0.3s;
+            @include transition(left 0.3s);
 
             .link {
                 text-decoration: none;
@@ -149,7 +164,7 @@
                         box-shadow: 0 0 $fab-shadow*2 rgba(0,0,0,.14),0 $fab-shadow*2 $fab-shadow*4 rgba(0,0,0,.28);
                     }
 
-                    figcaption {
+                    .buyer-name {
                         text-shadow: 2px 2px rgba(0,0,0,0.75);
                     }
                 }

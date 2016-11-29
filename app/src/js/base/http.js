@@ -5,6 +5,8 @@ define('http', ['ajax'], function(ajax) {
     }
 
     var requestPost = function(endpoint, data, callback, headers) {
+        var callback = callback || {};
+
         ajax.post(endpoint, data, {
             'success': function(response, xhr) {
                 if (isFunction(callback.success)) {

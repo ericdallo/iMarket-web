@@ -10,4 +10,56 @@
             max-height: 16em;
         }
     }
+
+    .markets-title {
+        color: white;
+        margin-top: 2em;
+
+        h2 {
+            position: relative;
+            display: inline-block;
+            width: 50%;
+            font-size: 1.6em;
+            font-weight: lighter;
+            background-color: $primary-color;
+            padding: 0.5em 2em 0.5em;
+            text-transform: uppercase;
+
+            strong {
+                font-weight: normal;
+            }
+
+            &:after {
+                position: absolute;
+                top: 0;
+                right: calc(-2em + 1px);
+                content: '';
+                width: 0;
+                height: 0;
+                border-bottom: 2em solid $primary-color;
+                border-right: 2em solid transparent;
+            }
+            .border-title {
+                position: absolute;
+                top: 0;
+                right: -1.8em;
+                width: 0.5em;
+                height: 2em;
+                display: inline-block;
+                background-color: $primary-color;
+                @include transform(skew(45deg));
+
+                &.semi-transparent {
+                    right: -2.6em;
+                    opacity: 0.7;
+                }
+
+                &.transparent {
+                    right: -3.4em;
+                    opacity: 0.4;
+                }
+                
+            }
+        }
+    }
 }
