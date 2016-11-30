@@ -18,6 +18,6 @@
     "async-define": "https://github.com/elo7/async-define.git#v1.0.5",
     "events-amd": "1.0.2",
     "ajax-amd": "https://github.com/elo7/ajax-amd.git#ISSUE-5",
-    "doc-amd": "1.0.10"
+    "doc-amd": "1.0.12"
   }
 }
