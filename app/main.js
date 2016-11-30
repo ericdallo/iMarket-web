@@ -2,18 +2,9 @@
 
 const http2 = require('spdy'),
     http = require('http'),
-    express = require('express'),
-    path = require('path'),
-    app = express(),
-    fs = require('fs');
-
-var root = path.join(__dirname, 'dist/');
-
-app.use(express.static(root, {extensions: ['html']}));
-
-app.get('/:marketUrl/mercado', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/templates/market/home.html'));
-});
+    fs = require('fs'),
+    app = require('./routes.js').build(),
+    port = 8080;
 
 if (process.env.PROD) {
     var options = {
@@ -22,22 +13,22 @@ if (process.env.PROD) {
     }
 
     http2.createServer(options, app)
-        .listen(8080, (error) => {
+        .listen(port, (error) => {
             if (error) {
                 console.error(error)
                 return process.exit(1);
             } else {
-                console.log('Started server on port: 8080');
+                console.log('Started server on port: ' + port);
             }
       });
 } else {
     http.createServer(app)
-        .listen(8080, (error) => {
+        .listen(port, (error) => {
             if (error) {
                 console.error(error)
                 return process.exit(1);
             } else {
-                console.log('Started server on port: 8080');
+                console.log('Started server on port: ' + port);
             }
       });
 }
