@@ -75,3 +75,17 @@ body {
 .hide {
     display: none !important;
 }
+
+
+::-webkit-scrollbar {
+    width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $background-gray;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $primary-color-light;
+    border-left: 1px solid $background-gray;
+}
