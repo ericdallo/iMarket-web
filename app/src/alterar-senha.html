@@ -1,0 +1,36 @@
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Alterar senha</title>
+<meta name="description" content="">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->market-change-password.css">
+<script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->messages.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->market-change-password.js" ></script>
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+        <nav class="navigation">
+            <div class="unlogged">
+                <a href="/login" class="login">Entrar</a>
+                <a href="/login"><img src="<!--@echo imagesDir-->login.svg" class="login-icon"></a>
+                <a href="/cadastro" class="register">Cadastre-se</a>
+            </div>
+            <div class="logged hide">
+                <button class="logout">Sair</button>
+            </div>
+        </nav>
+    <!-- @endextend -->
+    <main class="market-change-password">
+        <h2 class="title">Alterar senha</h2>
+        <p class="greetings">Bem-vindo! Altere sua senha e você ja pode começar a cadastrar seus produtos!</p>
+        <form id="change-password-form" method="POST" action="/change-password" class="change-password-form">
+            <p class="empty-fields-message message hide">Informe a nova senha nos dois campos abaixo</p>
+            <p class="invalid-fields-message message hide">As senhas informadas são diferentes</p>
+            <p class="not-authorized-message message hide">Não foi possivel alterar a senha</p>
+            <input type="password" name="password" placeholder="Nova senha" class="text-field password" 
+            required>
+            <input type="password" name="confirm-password" placeholder="Confirmar nova senha" class="text-field password" required>
+            <button class="btn btn-change">Confirmar alteração</button>
+        </form>
+    </main>
+<!-- @endextend -->

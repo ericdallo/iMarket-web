@@ -1,3 +1,5 @@
+@import 'messages';
+
 @keyframes slide {
     from { background-position: 100% 0; }
     to { background-position: 0 0; }
@@ -255,10 +257,12 @@ div.black-filter {
         }
     }
 }
-
 @media (min-width: 799px) {
     .header {
-        @include animation(slide 150s linear infinite);
+
+        .banner {
+            @include animation(slide 160s linear infinite);
+        }
 
         .content .navigation {
 

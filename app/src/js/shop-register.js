@@ -6,7 +6,6 @@ define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $mo
         pictureIdToAsign = undefined,
         $form = $('#registerForm');
 
-
     $('#hasInternetDevice').on('change', function() {
         var isChecked = this.checked;
 

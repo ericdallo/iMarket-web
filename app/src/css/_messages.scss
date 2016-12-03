@@ -1,0 +1,64 @@
+.messages-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 15;
+    color: white;
+    text-align: center;
+    display: none;
+    transform-origin: center center;
+    transform: translate(0, 0);
+    @include transition (transform 1s);
+
+    .content {
+        padding: 1em 0.2em;
+    }
+
+    &.success { background-color: $alert-success; display: block;}
+    &.error { background-color: $alert-error; display: block;}
+
+    &.disappear {
+        transform: translate(0, 200%);
+    }
+}
+
+@media (min-width: 499px) {
+
+    .messages-container {
+        position: fixed;
+        left: auto;
+        bottom: auto;
+        margin-top: 1em;
+        right: 1em;
+        max-width: 15em;
+        border-radius: 5px;
+        @include transition (transform 1s cubic-bezier(0.5, -0.5, 0.5, 1.5));
+
+        $triangle-width: 1em;
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 14;
+            display: block;
+            width: 0;
+            bottom: 0;
+            right: -1em;
+            border-style: solid;
+            border-width: $triangle-width*2 0 0 $triangle-width*2;
+        }
+
+        &.success:after{ border-color: transparent $alert-success; }
+        &.error:after{ border-color: transparent $alert-error; }
+
+        .content {
+            padding: 1em 0.5em;
+        }
+
+        &.disappear {
+            transform: translate(200%, 0);
+        }
+
+    }   
+}

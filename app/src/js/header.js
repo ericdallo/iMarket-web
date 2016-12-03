@@ -2,17 +2,14 @@ define(['doc', 'loginService', 'loggedUser', 'path'], function($, $loginService,
     'use strict'
 
     var ESC_KEY = 27,
-        loggedUser = $loggedUser.get(),
-        $menuSwitch = $('#menu-switch'),
-        $mainContent = $('body > main'),
-        $filter = $("div.black-filter");
+        loggedUser = $loggedUser.get();
 
     if (loggedUser != null) {
         $('.unlogged').addClass('hide');
         $('.logged').removeClass('hide');
         $('.menu').removeClass('hide');
 
-        $('.side-menu .buyer-name').text(loggedUser.name);
+        $('.side-menu .user-name').text(loggedUser.name);
     }
 
     $('.logout').on('click', function(event) {
@@ -21,11 +18,12 @@ define(['doc', 'loginService', 'loggedUser', 'path'], function($, $loginService,
         $path.home();
     });
 
-    $filter.on('click', function() {
-       $menuSwitch.first().checked = false;
+    $("div.black-filter").on('click', function() {
+       $('#menu-switch').first().checked = false;
     });
 
     $('body').on('keydown', function(event) {
+        var $menuSwitch = $('#menu-switch');
         if (event.keyCode === ESC_KEY && $menuSwitch.first().checked) {
             $menuSwitch.first().checked = false;
         }
