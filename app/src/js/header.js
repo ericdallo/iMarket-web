@@ -28,4 +28,15 @@ define(['doc', 'loginService', 'loggedUser', 'path'], function($, $loginService,
             $menuSwitch.first().checked = false;
         }
     });
+
+    var $headerContent = $('.header .content'),
+        headerBanner = $('.header .banner').first();
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset >= headerBanner.offsetHeight) {
+            $headerContent.addClass('fixed');
+        } else {
+            $headerContent.removeClass('fixed');
+        }
+    });
 });

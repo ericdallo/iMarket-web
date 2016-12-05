@@ -84,6 +84,13 @@ div.black-filter {
         width: 100%;
         text-align: center;
         position: relative;
+        background-color: $primary-color;
+        z-index: 11;
+
+        &.fixed {
+            position: fixed;
+            top: 0;
+        }
 
         .menu {
             display: inline-block;
