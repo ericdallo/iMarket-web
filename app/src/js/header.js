@@ -29,14 +29,17 @@ define(['doc', 'loginService', 'loggedUser', 'path'], function($, $loginService,
         }
     });
 
-    var $headerContent = $('.header .content'),
+    var $main = $('body > main'),
+        $headerContent = $('.header .content'),
         headerBanner = $('.header .banner').first();
 
     window.addEventListener('scroll', function() {
         if (window.pageYOffset >= headerBanner.offsetHeight) {
             $headerContent.addClass('fixed');
+            $main.addClass('fixed-header');
         } else {
             $headerContent.removeClass('fixed');
+            $main.removeClass('fixed-header');
         }
     });
 });
