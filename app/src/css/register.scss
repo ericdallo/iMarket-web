@@ -1,0 +1,125 @@
+@import 'base';
+@import 'header';
+@import 'form_components';
+
+.register-form {
+    position: relative;
+
+    .message {
+        text-align: center;
+        margin-bottom: 1em;
+        color: $primary-color-light;
+    }
+
+    .subtitle {
+        width: 100%;
+        display: block;
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .register {
+        padding: 1em 1em;
+        width: calc(100% - 2em);
+
+        .name,
+        .email,
+        .password,
+        .confirm-password,
+        .newsletter,
+        .terms,
+        .btn-register,
+        .btn-facebook {
+            width: 100%;
+            display: block;
+            margin-bottom: 1em;
+        }
+
+        .name,
+        .email,
+        .password {
+            margin-bottom: 0.75em;
+        }
+
+        .name,
+        .email,
+        .password,
+        .confirm-password {
+            width: calc(100% - 2em);
+            padding: 0.5em 1em;
+            text-align: left;
+        }
+
+        .newsletter,
+        .terms {
+            max-width: calc(100% - 2em);
+        }
+
+
+        .other-option {
+            margin-bottom: 1em;
+            text-align: center;
+            color: $black;
+        }
+
+        .btn-facebook {
+            margin-bottom: 1em;
+            background: $facebook url($images-dir + 'facebook-logo.png') no-repeat;
+            background-position: 0.5em center, center center;
+            background-size: 1.2em;
+            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 520px) {
+    .register-form {
+
+        .register {
+            padding: 1em 2em;
+            width: calc(100% - 4em);
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .register-form {
+
+        .register {
+            padding: 1em 6em;
+            width: calc(100% - 12em);
+        }
+    }
+}
+
+@media (min-width: 799px) {
+    .register-form {
+        padding: 2em 0;
+
+        .register {
+            margin: auto;
+            width: 70%;
+
+            .name,
+            .email,
+            .password,
+            .confirm-password {
+                width: calc(70% - 2em);
+                margin: auto auto .75em;
+                padding: 0.5em 1em;
+                text-align: left;
+            }   
+        }
+    }
+}
+
+@media (min-width: 1100px) {
+    .register-form {
+
+        .register {
+            margin: auto;
+            width: 40%;
+        }
+    }
+}

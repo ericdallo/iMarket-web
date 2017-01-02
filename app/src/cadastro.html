@@ -1,0 +1,35 @@
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Cadastro</title>
+<meta name="description" content="Cadastre-se agora e coloque no carrinho a sua compra do mês, não perca mais tempo em filas ou procurando produtos, começe agora no iMarket">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->register.css">
+<script type="text/javascript" src="<!-- @echo jsDir-->only-unlogged-filter.js" ></script>
+<script type="text/javascript" src="<!-- @echo jsDir-->facebook.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->form.js" ></script>
+<script async type="text/javascript" src="<!-- @echo jsDir-->register.js" ></script>
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+    <!-- @endextend -->
+    <main>
+        <form id="registerForm" method="POST" action="/register" class="register-form">
+            <section class="register">
+                <h2 class="subtitle">Cadastre-se agora</h2>
+                <input name="name" placeholder="Nome" class="text-field name mandatory" autofocus required>
+                <input type="email" name="email" placeholder="E-mail" class="text-field email mandatory" required>
+                <input type="password" name="password" placeholder="Senha" class="text-field password mandatory" required>
+                <input type="password" name="confirm-password" placeholder="Confirmar senha" class="text-field confirm-password mandatory" required>
+                <p class="empty-fields-message message hide">Preencha todos os campos</p>
+                <p class="passwords-not-match-message message hide">As senhas não são iguais</p>
+                <p class="email-already-exists-message message hide">Já existe um usuário com este e-mail</p>
+                <p class="terms-required-message message hide">É necessário aceitar os termos para se cadastrar</p>
+                <input id="newsletter" name="newsletter" type="checkbox" class="checkbox" checked>
+                <label for="newsletter" class="newsletter check-label">Desejo receber promoções e notícias no meu e-mail</label>
+                <input id="terms" name="terms" type="checkbox" class="checkbox" checked>
+                <label for="terms" class="terms check-label">Li e aceito os termos de uso e políticas de privacidade</label>
+                <button class="btn btn-register mandatory">Cadastrar</button>
+                <p class="other-option">ou</p>
+                <button href="/facebook" class="btn btn-facebook">Entrar com o facebok</button>
+            </section>                
+        </form>
+    </main>
+<!-- @endextend -->

@@ -1,4 +1,4 @@
-define(['doc', 'form', 'loginService','facebook', 'ENV'], function($, form, $loginService, $facebook, ENV) {
+define(['doc', 'form', 'loginService','facebook'], function($, form, $loginService, $facebook) {
     'use strict'
 
     var $form = $('#loginForm');

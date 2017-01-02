@@ -35,12 +35,13 @@ define('loginService',['http', 'loggedUser', 'path', 'ENV'], function($http, $lo
                 }
             });
         },
-        'register': function(name, username, password, loginOrigin, callback) {
+        'register': function(name, username, password, loginOrigin, optIn, callback) {
             var registerData = {
                 name: name,
                 email: username,
                 password: password,
-                login_origin: loginOrigin
+                login_origin: loginOrigin,
+                opt_in: optIn
             };
 
             $http.post(ENV.api.register, registerData, {

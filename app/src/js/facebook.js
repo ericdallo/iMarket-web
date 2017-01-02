@@ -23,7 +23,7 @@ define('facebook', ['loginService'], function($loginService) {
                 if (response.status === 'connected') {
                     FB.api("/me?fields=email,name", function (data) {
                         if (data && !data.error) {
-                            $loginService.register(data.name, data.email, data.id, 'FACEBOOK', callback);
+                            $loginService.register(data.name, data.email, data.id, 'FACEBOOK', true, callback);
                         }
                     });
                 } else {
