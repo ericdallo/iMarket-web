@@ -2,26 +2,30 @@
 @import 'header';
 @import 'form_components';
 
-.register-form {
+.register {
     position: relative;
 
-    .message {
-        text-align: center;
-        margin-bottom: 1em;
-        color: $primary-color-light;
-    }
-
     .subtitle {
-        width: 100%;
         display: block;
         font-size: 2em;
         text-align: center;
-        margin-bottom: 1em;
+        margin: 0.4em 0;
     }
 
-    .register {
+    .shelf {
+        width: 95%;
+        margin: auto auto 2em;
+    }
+
+    .register-form {
         padding: 1em 1em;
         width: calc(100% - 2em);
+
+        .message {
+            text-align: center;
+            margin-bottom: 1em;
+            color: $primary-color-light;
+        }
 
         .name,
         .email,
@@ -70,13 +74,17 @@
             background-size: 1.2em;
             width: 100%;
         }
+
+        .fab {
+            display: none;
+        }
     }
 }
 
 @media (min-width: 520px) {
-    .register-form {
+    .register {
 
-        .register {
+        .register-form {
             padding: 1em 2em;
             width: calc(100% - 4em);
         }
@@ -84,9 +92,9 @@
 }
 
 @media (min-width: 600px) {
-    .register-form {
+    .register {
 
-        .register {
+        .register-form {
             padding: 1em 6em;
             width: calc(100% - 12em);
         }
@@ -94,10 +102,19 @@
 }
 
 @media (min-width: 799px) {
-    .register-form {
-        padding: 2em 0;
+    .register {
 
-        .register {
+        .subtitle {
+            text-align: left;
+            padding-left: 6em;
+            margin-top: 1em;
+        }
+
+        .shelf {
+            width: 80%;
+        }
+
+        .register-form {
             margin: auto;
             width: 70%;
 
@@ -105,21 +122,44 @@
             .email,
             .password,
             .confirm-password {
-                width: calc(70% - 2em);
-                margin: auto auto .75em;
-                padding: 0.5em 1em;
-                text-align: left;
-            }   
+                width: calc(60% - 2em);
+                margin-bottom: .75em;
+            }
+
+            .fab {
+                position: fixed;
+                right: 1.5em;
+                bottom: 1.5em;
+                display: inline-block;
+                width: 3em;
+            }
+
+            .btn-facebook {
+                right: 6em;
+                background-position: center;
+                background-size: 1.4em;
+            }
+
+            .btn,
+            .other-option {
+                display: none;
+            }
         }
     }
 }
 
 @media (min-width: 1100px) {
-    .register-form {
+    .register {
 
-        .register {
-            margin: auto;
-            width: 40%;
+        .register-form {
+
+            .name,
+            .email,
+            .password,
+            .confirm-password {
+                width: calc(50% - 2em);
+            }
+
         }
     }
 }
