@@ -1,4 +1,4 @@
-define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $modal, $pictureService, $http, form, ENV) {
+define(['doc', 'form', 'alert', 'modal', 'pictureService', 'http', 'ENV'], function($, form, alert, $modal, $pictureService, $http, ENV) {
     'use strict'
 
     var ALREADY_REPORTED = 208,
@@ -41,12 +41,12 @@ define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $mo
                     $pictureBox.addClass('loaded-picture');
                 },
                 'largeSize': function() {
-                    showMessage(".large-size-image-upload-message");
+                    alert.error(".large-size-image-upload-message");
                     $pictureBox.removeClass('loading-picture');
                     $pictureBox.addClass('loaded-error-picture');
                 },
                 'error': function() {
-                    showMessage(".error-image-upload-message");
+                    alert.error(".error-image-upload-message");
                     $pictureBox.removeClass('loading-picture');
                     $pictureBox.addClass('loaded-error-picture');
                 }
@@ -90,7 +90,7 @@ define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $mo
             $http.post(ENV.api.premarkets, preMarket, {
                 success: function(response) {
                     if (response.status === ALREADY_REPORTED) {
-                        showMessage(".waiting-approval-message");
+                        alert.error(".waiting-approval-message");
                         return;
                     }
                     $modal.show('.modal-success', function() {
@@ -104,10 +104,10 @@ define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $mo
                 },
                 error: function(response) {
                     if (response.status === NOT_ACCEPTABLE) {
-                        showMessage(".market-already-approved-message");
+                        alert.error(".market-already-approved-message");
                         return;
                     } 
-                    showMessage(".error-api-message");
+                    alert.error(".error-api-message");
                 },
                 complete: function() {
                     $fab.first().disabled = false;
@@ -116,16 +116,8 @@ define(['doc', 'modal', 'pictureService','http', 'form', 'ENV'], function($, $mo
             });
         },
         error: function() {
-            showMessage(".empty-fields-message");
+            alert.error(".empty-fields-message");
         }
     });
-
-    var showMessage = function(messageClass) {
-        var $invalidMessage = $form.find(messageClass);
-        $invalidMessage.toggleClass('hide');
-        setTimeout(function() {
-            $invalidMessage.addClass('hide');
-        },4000);
-    }
 
 });

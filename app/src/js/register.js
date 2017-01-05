@@ -1,4 +1,4 @@
-define(['doc', 'form', 'loginService','facebook'], function($, form, $loginService, $facebook) {
+define(['doc', 'form', 'alert', 'loginService', 'facebook'], function($, form, alert, $loginService, $facebook) {
     'use strict'
 
     var $form = $('#registerForm');
@@ -15,23 +15,23 @@ define(['doc', 'form', 'loginService','facebook'], function($, form, $loginServi
                 acceptNewsletter = $(this).find('[name="newsletter"]').first().checked;
 
             if (!terms) {
-                showMessage('.terms-required-message');
+                alert.error('.terms-required-message');
                 return;
             }
 
             if (password !== confirmPassword) {
-                showMessage('.passwords-not-match-message');
+                alert.error('.passwords-not-match-message');
                 return;
             }
 
             $loginService.register(name, email, password, 'IMARKET', acceptNewsletter, {
                 'error': function() {
-                    showMessage('.email-already-exists-message');
+                    alert.error('.email-already-exists-message');
                 }
             });
         },
         error: function() {
-            showMessage('.empty-fields-message');
+            alert.error('.empty-fields-message');
         }
     });
 
@@ -40,16 +40,8 @@ define(['doc', 'form', 'loginService','facebook'], function($, form, $loginServi
 
         $facebook.register({
             error: function() {
-                showMessage('.email-already-exists-message');
+                alert.error('.email-already-exists-message');
             }
         });
     });
-
-    var showMessage = function(messageClass) {
-        var $invalidMessage = $form.find(messageClass);
-        $invalidMessage.toggleClass('hide');
-        setTimeout(function() {
-            $invalidMessage.addClass('hide');
-        },4000);
-    }
 });

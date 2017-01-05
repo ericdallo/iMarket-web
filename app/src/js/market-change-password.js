@@ -1,4 +1,4 @@
-define(['doc', 'form', 'http', 'path', 'messages', 'ENV'], function($, form, $http, $path, $messages, ENV) {
+define(['doc', 'form', 'alert', 'http', 'path', 'messages', 'ENV'], function($, form, alert, $http, $path, $messages, ENV) {
     'use strict'
 
     var id = $path.getParameter('id'),
@@ -19,7 +19,7 @@ define(['doc', 'form', 'http', 'path', 'messages', 'ENV'], function($, form, $ht
                 confirmPassword = $form.find('[name="confirm-password"]').val();
 
             if (password != confirmPassword) {
-                showMessage('.invalid-fields-message');
+                alert.error('.invalid-fields-message');
                 return;
             }
 
@@ -35,20 +35,12 @@ define(['doc', 'form', 'http', 'path', 'messages', 'ENV'], function($, form, $ht
                     $path.redirect(ENV.login);
                 },
                 error: function() {
-                    showMessage('.not-authorized-message');
+                    alert.error('.not-authorized-message');
                 }
             });
         },
         error: function() {
-            showMessage('.empty-fields-message');
+            alert.error('.empty-fields-message');
         }
     });
-
-    var showMessage = function(messageClass) {
-        var $invalidMessage = $form.find(messageClass);
-        $invalidMessage.toggleClass('hide');
-        setTimeout(function() {
-            $invalidMessage.addClass('hide');
-        }, 4000);
-    }
 });

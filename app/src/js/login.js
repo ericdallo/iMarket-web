@@ -1,4 +1,4 @@
-define(['doc', 'form', 'loginService','facebook'], function($, form, $loginService, $facebook) {
+define(['doc', 'form', 'alert', 'loginService', 'facebook'], function($, form, alert, $loginService, $facebook) {
     'use strict'
 
     var $form = $('#loginForm');
@@ -12,12 +12,12 @@ define(['doc', 'form', 'loginService','facebook'], function($, form, $loginServi
 
             $loginService.login(username, password, {
                 'error': function() {
-                    showMessage('.invalid-fields-message');
+                    alert.error('.invalid-fields-message');
                 }
             });
         },
         error: function() {
-            showMessage('.empty-fields-message');
+            alert.error('.empty-fields-message');
         }
     });
 
@@ -26,16 +26,8 @@ define(['doc', 'form', 'loginService','facebook'], function($, form, $loginServi
 
         $facebook.register({
             error: function() {
-                showMessage('.email-already-exists');
+                alert.error('.email-already-exists');
             }
         });
     });
-
-    var showMessage = function(messageClass) {
-        var $invalidMessage = $form.find(messageClass);
-        $invalidMessage.toggleClass('hide');
-        setTimeout(function() {
-            $invalidMessage.addClass('hide');
-        },4000);
-    }
 });
