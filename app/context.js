@@ -6,6 +6,7 @@ vars.cssDir = '/css/'
 vars.jsDir = '/js/'
 vars.assetsDir = '/assets/';
 vars.imagesDir = vars.assetsDir + 'images/';
+vars.cloudImagesDir = 'https://storage.googleapis.com/images.imarketbr.com/imarket-web';
 
 vars.states = ['AC','AL','AM','AP','BA','CE','DF','ES','GO','MA','MG','MS','MT','PA','PB','PE','PI','PR','RJ','RN','RO','RR','RS','SC','SP','SE','TO'].toString();
 module.exports = { vars };

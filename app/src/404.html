@@ -1,1 +1,30 @@
-Pagina não encontrada ;(
+<!-- @extend templates/directives/layout-head.html -->
+<title>iMarket | Página não encontrada</title>
+<meta name="description" content="O iMarket é um marketplace que liga clientes de diversos mercados e mercados que vendem estes produtos. Com o iMarket, você pode comprar sem sair de casa, não perca mais tempo em filas, procurando produtos ou comparando preços. Confira, iMarket, o seu mercado no mercado.">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<link rel="stylesheet" type="text/css" href="<!-- @echo cssDir-->404.css">
+<!-- @endextend -->
+<!-- @extend templates/directives/layout-body.html -->
+    <!-- @extend templates/directives/header.html -->
+        <nav class="navigation">
+            <div class="unlogged">
+                <a href="/login" class="login">Entrar</a>
+                <a href="/login"><img src="<!--@echo imagesDir-->login.svg" class="login-icon"></a>
+                <a href="/cadastro" class="register">Cadastre-se</a>
+            </div>
+            <div class="logged hide">
+                <button class="logout">Sair</button>
+            </div>
+        </nav>
+    <!-- @endextend -->
+    <main class="not-found">
+    	<section class="content">
+    		<h2 class="title">404!</h2>
+    		<div class="shelf"></div>
+    		<p class="description">Prateleiras vazias! Não encontramos esta página.</p>
+    		<div class="shelf"></div>
+    	</section>
+        <img src="<!-- @echo imagesDir -->/mascote-404.png" class="mascot">
+        <div class="mascot-dialog"><p>Acho melhor chamar meu neto!</p></div>
+    </main>
+<!-- @endextend -->
