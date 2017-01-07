@@ -16,11 +16,11 @@ body {
     .social-networks {
         float: left;
         width: 28%;
-        padding-left: 3em;
+        padding-left: 1em;
 
         a {
             color: $dark-text-gray;
-            font-size: 1.2em;
+            font-size: 0.8em;
             display: block;
             margin-bottom: 0.5em;
         }
@@ -28,7 +28,7 @@ body {
 
     h3 {
         color: $primary-color;
-        font-size: 1.4em;
+        font-size: 1em;
         margin-bottom: 0.5em;
     }
 
@@ -38,7 +38,7 @@ body {
         padding: 0.5em 0;
 
         .download-app {
-            font-size: 1.2em;
+            font-size: 1em;
             text-align: center;
             padding: 0 1em;
             vertical-align: super;
@@ -63,6 +63,44 @@ body {
             p:first-of-type {
                 margin-bottom: 0.5em;
             }
+        }
+    }
+}
+
+@media (min-width: 600px) {
+
+    .footer {
+
+        .attendance,
+        .institutional,
+        .social-networks {
+
+            a {
+                font-size: 1em;
+            }
+        }
+
+        h3 {
+            font-size: 1.4em;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .footer {
+
+        .attendance,
+        .institutional,
+        .social-networks {
+            padding-left: 2em;
+
+            a {
+                font-size: 1.2em;
+            }
+        }
+
+        h3 {
+            font-size: 1.4em;
         }
     }
 }

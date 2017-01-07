@@ -15,7 +15,7 @@ body {
         h2 {
             position: relative;
             display: inline-block;
-            width: 40%;
+            width: 50%;
             font-size: 1em;
             font-weight: lighter;
             background-color: $primary-color;
@@ -59,6 +59,30 @@ body {
             }
         }
     }
+
+    .markets {        
+
+        .market {
+            display: block;
+            margin: 2em auto;
+            width: 80%;
+
+            .picture {
+                border: 0.5em solid $primary-color;
+                width: calc(100% - 1em);
+                height: 100%;
+            }
+
+            .name {
+                color: $primary-color;
+                font-size: 1.2em;
+            }
+
+            .address {
+                color: $text-gray;
+            }
+        }
+    }
 }
 
 @media (min-width: 520px) {
@@ -67,6 +91,7 @@ body {
 
             h2 {
                 font-size: 1.2em;
+                width: 50%;
             }
         }
     }   
@@ -78,6 +103,27 @@ body {
 
             h2 {
                 font-size: 1.4em;
+            }
+        }
+
+        .markets {        
+
+            .market {
+                display: inline-block;
+                margin: 2em 2em;
+                width: calc(50% - 5em);
+            }
+        }
+    }   
+}
+
+@media (min-width: 1100px) {
+    .buyer-home {
+        .markets {
+
+            .market {
+                margin: 2em 4em;
+                width: calc(50% - 9em);
             }
         }
     }   
