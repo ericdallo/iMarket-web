@@ -1,0 +1,69 @@
+body {
+    position: relative;
+    padding-bottom: 14em;
+}
+
+.footer {
+    background-color: $background-gray;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 1em;
+
+    .attendance,
+    .institutional,
+    .social-networks {
+        float: left;
+        width: 30%;
+
+        a {
+            color: $dark-text-gray;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        padding-left: 2em;
+    }
+
+    h3 {
+        color: $primary-color;
+        font-size: 1.4em;
+        margin-bottom: 0.5em;
+    }
+
+    .resume {
+        clear: both;
+        background-color: $footer-gray;
+        padding: 0.5em 0;
+
+        .download-app {
+            font-size: 1.2em;
+            text-align: center;
+            padding: 0 1em;
+            vertical-align: super;
+            color: $text-gray;
+        }
+
+        .google-play {
+            height: 2em;
+            margin-right: 1em;
+            vertical-align: bottom;
+        }
+
+        .business-info {
+            display: inline-block;
+            padding-left: 1em;
+            font-size: 0.8em;
+            font-weight: lighter;
+            color: $text-gray-light;
+
+            border-left: 1px solid $text-gray-light;
+
+            p:first-of-type {
+                margin-bottom: 0.5em;
+            }
+        }
+    }
+}

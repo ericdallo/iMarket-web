@@ -1,5 +1,10 @@
 @import 'base';
 @import 'header';
+@import 'footer';
+
+body {
+    background-color: white;
+}
 
 .buyer-home {
 
@@ -13,13 +18,12 @@
 
     .markets-title {
         color: white;
-        margin-top: 2em;
 
         h2 {
             position: relative;
             display: inline-block;
             width: 50%;
-            font-size: 1.6em;
+            font-size: 1.4em;
             font-weight: lighter;
             background-color: $primary-color;
             padding: 0.5em 2em 0.5em;
