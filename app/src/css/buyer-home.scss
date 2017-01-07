@@ -1,29 +1,22 @@
 @import 'base';
 @import 'header';
 @import 'footer';
+@import 'carousel';
 
 body {
     background-color: white;
 }
 
 .buyer-home {
-
-    .carousel {
-
-        img {
-            width: 100%;
-            max-height: 16em;
-        }
-    }
-
+    
     .markets-title {
         color: white;
 
         h2 {
             position: relative;
             display: inline-block;
-            width: 50%;
-            font-size: 1.4em;
+            width: 40%;
+            font-size: 1em;
             font-weight: lighter;
             background-color: $primary-color;
             padding: 0.5em 2em 0.5em;
@@ -66,4 +59,26 @@ body {
             }
         }
     }
+}
+
+@media (min-width: 520px) {
+    .buyer-home {
+        .markets-title {
+
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    }   
+}
+
+@media (min-width: 800px) {
+    .buyer-home {
+        .markets-title {
+
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+    }   
 }

@@ -13,7 +13,11 @@
     -moz-transition: $transition;
     transition: $transition;
 }
-
+@mixin transition-timing-function($transition-timing-function...) {
+    -webkit-transition-timing-function: $transition-timing-function;
+    -moz-transition-timing-function: $transition-timing-function;
+    transition-timing-function: $transition-timing-function;
+}
 @mixin transform($transform...) {
     -webkit-transform: $transform;
     -moz-transform: $transform;

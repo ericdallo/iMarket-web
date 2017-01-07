@@ -15,7 +15,8 @@ body {
     .institutional,
     .social-networks {
         float: left;
-        width: 30%;
+        width: 28%;
+        padding-left: 3em;
 
         a {
             color: $dark-text-gray;
@@ -23,8 +24,6 @@ body {
             display: block;
             margin-bottom: 0.5em;
         }
-
-        padding-left: 2em;
     }
 
     h3 {
