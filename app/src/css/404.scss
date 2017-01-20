@@ -6,45 +6,41 @@
     position: relative;
 
     .content {
-        position: absolute;
-        right: 0;
-        top: 4em;
-        width: 50%;
+        margin-top: 2em;
+        width: 95%;
 
         .title {
-            font-size: 6em;
+            font-size: 4em;
             font-weight: bold;
             text-align: center;
             color: $primary-color;
         }
 
         .description {
-            margin-top: 4em;
+            margin-top: 2em;
             margin-bottom: 0.4em;
-            font-size: 1.6em;
+            font-size: 1.2em;
             padding-left: 1em;
             text-align: center;
             color: $primary-color;
-        }
-        .shelf {
-            
         }
     }
 
     .mascot {
         position: fixed;
+        bottom: -2em;
         z-index: 11;
-        bottom: 0;
-        left: 8em;
+        margin-left: 4em;
+        height: 15em;
     }
 
     .mascot-dialog {
         position: fixed;
         z-index: 8;
-        bottom: 14em;
-        left: 16em;
-        width: 11em;
-        padding: 3em 1.5em;
+        bottom: 8em;
+        right: 1em;
+        width: 7em;
+        padding: 1em 1.5em;
         border-radius: 60%;
         text-align: center;
         background-color: $input-gray;
@@ -77,6 +73,38 @@
         p {
             color: $gray;
             font-size: 1.2em;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .not-found {
+
+        .content {
+            margin-top: 4em;
+            width: 50%;
+
+            .title {
+                font-size: 6em;
+            }
+
+            .description { 
+                margin-top: 4em;
+                font-size: 1.6em;
+            }
+        }
+
+        .mascot {
+            right: 16em;
+            bottom: 0;
+            height: auto;
+        }
+
+        .mascot-dialog {
+            bottom: 14em;
+            right: 8em;
+            width: 11em;
+            padding: 3em 1.5em;
         }
     }
 }

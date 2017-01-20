@@ -192,7 +192,7 @@ $fab-shadow: 4px;
 .left-shelf {
     @extend .shelf;
 
-    &:after {
+    &:before {
         left: 0;
         @include transform(none);
     }   
