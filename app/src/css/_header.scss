@@ -168,10 +168,6 @@ div.black-filter {
                 font-size: 1.4em;
                 display: block;
                 padding: 1em 0;
-
-                &:hover {
-                    background-color: $primary-color-dark;
-                }
             
             }
 
@@ -275,15 +271,123 @@ div.black-filter {
             @include animation(slide 160s linear infinite);
         }
 
-        .content .navigation {
+        .content {
 
-            .login,
-            .register {
-                display: inline-block;
+            .menu {
+                display: none;
             }
 
-            .login-icon {
-                display: none;
+            .side-menu {
+                left: 0;
+                width: 100%;
+                background-color: $background-gray;
+                position: relative;
+                @include transition(none);
+
+                .avatar {
+                    display: none;
+                }
+
+                .item {
+                    display: inline-block;
+                    padding: 1em 0.5em;
+                    background-size: 1.5em;
+                    background-position: left center;
+                    background-repeat: no-repeat;
+
+                    &:last-of-type div:after {
+                        display: none;
+                    }
+
+                    div:after {
+                        content: '';
+                        display: inline-block;
+                        position: absolute;
+                        top: calc(50% - 0.75em);
+                        background-color: $gray;
+                        width: 1px;
+                        height: 1.5em;
+                    }
+
+                    &.your-market {
+                        background-image: url($cloud-images-dir + "menu/market.png");
+                    }
+
+                    &.products {
+                        background-image: url($cloud-images-dir + "menu/products.png") ;
+                    }
+
+                    &.orders {
+                        background-image: url($cloud-images-dir + "menu/orders.png") ;
+                    }
+
+                    &.control {
+                        background-image: url($cloud-images-dir + "menu/control.png");
+                    }
+                }
+
+                .link {
+                    display: inline-block;
+                    padding: 0;
+                    color: $text-gray;
+                    font-size: 1em;
+                    padding: 0 2em;
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+
+
+            .navigation {
+
+                .login,
+                .register {
+                    display: inline-block;
+                }
+
+                .login-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .header {
+
+        .content {
+
+            .side-menu {
+                .item {
+                    padding: 1em 1em;
+                    margin: 0 1em;
+                }
+
+                .link {
+                    padding: 0 2em;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    .header {
+
+        .content {
+
+            .side-menu {
+                .item {
+                    padding: 1em 1em;
+                }
+
+                .link {
+                    padding: 0 2em;
+                    margin: 0 1em;
+                }
             }
         }
     }
