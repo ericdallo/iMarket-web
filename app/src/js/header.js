@@ -7,7 +7,11 @@ define(['doc', 'loginService', 'loggedUser', 'path'], function($, $loginService,
     if (loggedUser != null) {
         $('.unlogged').addClass('hide');
         $('.logged').removeClass('hide');
-        $('.menu').removeClass('hide');
+
+        if ($loggedUser.isMarket()) {
+            $('.side-menu').removeClass('hide');
+            $('.menu').removeClass('hide');
+        }
 
         $('.side-menu .user-name').text(loggedUser.name);
     }
