@@ -77,6 +77,10 @@ body {
     display: none !important;
 }
 
+.loading-bar .bar {
+    background-color: $primary-color;
+}
+
 ::-webkit-scrollbar {
     width: 0.7em;
 }

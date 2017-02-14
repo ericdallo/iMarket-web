@@ -1,11 +1,17 @@
 define('http', ['ajax'], function(ajax) {
 
+    var loadingBar = new Nanobar({
+        classname: 'loading-bar'
+    });
+
     function isFunction(fn) {
         return fn && typeof fn === "function";
     }
 
     var requestPost = function(endpoint, data, callback, headers) {
         var callback = callback || {};
+
+        loadingBar.go(30);
 
         ajax.post(endpoint, data, {
             'success': function(response, xhr) {
@@ -19,6 +25,7 @@ define('http', ['ajax'], function(ajax) {
                 }
             },
             'complete': function(xhr) {
+                loadingBar.go(100);
                 if (isFunction(callback.complete)) {
                     callback.complete();
                 }
@@ -32,6 +39,8 @@ define('http', ['ajax'], function(ajax) {
     var requestDelete = function(endpoint, data, callback) {
         var callback = callback || {};
 
+        loadingBar.go(30);
+
         ajax.delete(endpoint, data, {
             'success': function(response, xhr) {
                 if (isFunction(callback.success)) {
@@ -44,6 +53,7 @@ define('http', ['ajax'], function(ajax) {
                 }
             },
             'complete': function(xhr) {
+                loadingBar.go(100);
                 if (isFunction(callback.complete)) {
                     callback.complete();
                 }
